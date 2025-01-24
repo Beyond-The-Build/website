@@ -1,0 +1,55 @@
+{
+  "name": "beyond-the-build",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next --turbopack",
+    "format": "npx prettier --write . --ignore-path .gitignore",
+    "lint": "next lint .",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "start": "next start",
+    "sanity-build": "sanity build",
+    "sanity-deploy": "sanity deploy",
+    "type-check": "tsc --noEmit"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@next/env": "15.1.6",
+    "@sanity/demo": "2.0.0",
+    "@sanity/icons": "3.5.7",
+    "@sanity/image-url": "1.1.0",
+    "@sanity/react-loader": "1.10.39",
+    "@sanity/ui": "2.11.4",
+    "@sanity/vision": "3.71.2",
+    "@tailwindcss/typography": "0.5.16",
+    "classnames": "2.5.1",
+    "date-fns": "4.1.0",
+    "next": "15.1.6",
+    "next-sanity": "9.8.42",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-icons": "^5.4.0",
+    "rxjs": "7.8.1",
+    "sanity": "3.71.2",
+    "sanity-plugin-asset-source-unsplash": "3.0.2",
+    "server-only": "0.0.1",
+    "styled-components": "6.1.14"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.8",
+    "autoprefixer": "10.4.20",
+    "eslint": "8.57.1",
+    "eslint-config-next": "15.1.6",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "postcss": "8.5.1",
+    "prettier": "3.4.2",
+    "prettier-plugin-packagejson": "2.5.8",
+    "prettier-plugin-tailwindcss": "0.6.10",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.3"
+  }
+}
