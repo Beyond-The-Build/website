@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { memo, useSyncExternalStore } from 'react'
+import React, { ReactElement } from 'react'
 
 import { studioUrl } from '@/sanity/lib/api'
 
@@ -214,7 +215,7 @@ function Box({
   element,
 }: {
   circleTitle: string
-  element: JSX.Element
+  element: ReactElement
 }) {
   return (
     <li className="mt-2 grid grid-flow-col grid-rows-1 place-content-start gap-3">
