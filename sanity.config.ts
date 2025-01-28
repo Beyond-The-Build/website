@@ -20,7 +20,7 @@ import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 import podcast from '@/sanity/schemas/documents/podcast'
-
+import speakers from '@/sanity/schemas/documents/speakers'
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
   'Beyond The Build'
@@ -41,6 +41,7 @@ export default defineConfig({
       page,
       project,
       podcast,
+      speakers,
       // Objects
       milestone,
       timeline,
