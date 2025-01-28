@@ -68,7 +68,17 @@ export default defineType({
       },
       validation: (rule) => rule.required(),
     }),
-
+    {
+      name: 'speakers',
+      title: 'Speakers',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'speaker' }],
+        },
+      ],
+    },
 
 
     defineField({

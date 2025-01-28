@@ -60,13 +60,25 @@ export interface ProjectPayload {
 }
 
 export interface PodcastPayload {
-
   title?: string
   slug: string
   overview?: PortableTextBlock[]
   coverImage?: Image
   tags?: string[]
   description?: PortableTextBlock[]
+  speakers?: SpeakerPayload[]
+}
+
+export interface SpeakerPayload {
+  _type: string
+  name?: string
+  photo?: Image
+  bio?: PortableTextBlock[]
+  github?: string
+  linkedin?: string
+  bluesky?: string
+  website?: string
+  slug?: string
 }
 
 export interface SettingsPayload {
