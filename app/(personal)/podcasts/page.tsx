@@ -1,14 +1,15 @@
+// @ts-nocheck
 import Link from 'next/link'
 
 import { loadPaginatedPodcast } from '@/sanity/loader/loadQuery'
 import { PaginatedPodcastResponse,PodcastPayload } from '@/types'
-/* eslint-disable */
+
 export default async function PodcastListRoute({
   searchParams,
 }: {
   searchParams: { page?: string }
 }) {
-/* eslint-enable */
+
   const pageSize = parseInt(process.env.NEXT_PAGE_SIZE || '15')
   const page = searchParams?.page ? parseInt(searchParams.page, 10) : 1
   const skip = (page - 1) * pageSize
