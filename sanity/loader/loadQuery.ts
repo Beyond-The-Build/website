@@ -10,6 +10,7 @@ import {
   projectBySlugQuery,
   podcastBySlugQuery,
   settingsQuery,
+  paginatedPodcastQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
@@ -102,4 +103,11 @@ export function loadPodcast(slug: string) {
     { slug },
     { next: { tags: [`podcast:${slug}`] } },
   )
+}
+
+export async function loadPaginatedPodcast(skip: number, pageSize: number) {
+  return queryStore.loadQuery(
+    paginatedPodcastQuery, 
+    { skip, pageSize }, 
+    { cache: 'force-cache' })
 }

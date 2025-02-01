@@ -60,6 +60,7 @@ export interface ProjectPayload {
 }
 
 export interface PodcastPayload {
+  _id: string,
   title?: string
   slug: string
   overview?: PortableTextBlock[]
@@ -85,4 +86,9 @@ export interface SettingsPayload {
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
   ogImage?: Image
+}
+
+export interface PaginatedPodcastResponse {
+  podcasts: PodcastPayload[]
+  podcastCount: number
 }
