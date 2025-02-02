@@ -24,6 +24,22 @@ export const homePageQuery = groq`
   }
 `
 
+export const paginatedPodcastQuery = groq`
+{
+  "podcastCount": count(*[_type == "podcast"]),
+  "podcasts": *[_type == "podcast"] | order(_id) [$skip...$pageSize] {
+    _id,
+    "slug": slug.current,
+    title,
+    overview,
+    coverImage,
+    tags,
+    description,
+    speakers
+  },
+}
+`
+
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     _id,
@@ -48,6 +64,7 @@ export const projectBySlugQuery = groq`
     title,
   }
 `
+
 export const podcastBySlugQuery = groq`
   *[_type == "podcast" && slug.current == $slug][0] {
     _id,
@@ -58,8 +75,17 @@ export const podcastBySlugQuery = groq`
     client,
     tags,
     description,
+    speakers[]-> {
+      _id,
+      name,
+      role,
+      image,
+      bio,
+      "slug": slug.current
+    }
   }
 `
+
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
     footer,
