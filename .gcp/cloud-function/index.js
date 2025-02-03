@@ -13,7 +13,7 @@ const DEPLOY_EVENTS = {
   "building": "🚀 **Deployment Started**",
   "ready": "✅ **Deployment Succeeded**",
   "error": "❌ **Deployment Failed**",
-  "deploy_deleted": "🗑️ **Deployment Deleted**",
+  "deleted": "🗑️ **Deployment Deleted**",
   "deploy_locked": "🔒 **Deployment Locked**",
   "deploy_unlocked": "🔓 **Deployment Unlocked**",
   "deploy_request_pending": "⏳ **Deploy Request Pending**",
@@ -110,7 +110,7 @@ exports.netlifyToDiscord = async (req, res) => {
 - **URL:** ${buildStatus.url}
 `;
 
-    if (buildStatus.state === 'error' && buildStatus.error_message) {
+    if (buildStatus.state === 'error') {
       message += `- **Error Message:** ${buildStatus.error_message}\n`;
     }
 
