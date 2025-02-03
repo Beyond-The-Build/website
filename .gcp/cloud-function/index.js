@@ -8,20 +8,20 @@ const client = new SecretManagerServiceClient();
 const logging = new Logging();
 const log = logging.log('cloud_function');
 
-// Define btb events
+// Define Netlify deployment events
 const DEPLOY_EVENTS = {
-  "building": "🚀 **Deployment Started**",
-  "ready": "✅ **Deployment Succeeded**",
-  "error": "❌ **Deployment Failed**",
-  "deleted": "🗑️ **Deployment Deleted**",
-  "deploy_locked": "🔒 **Deployment Locked**",
-  "deploy_unlocked": "🔓 **Deployment Unlocked**",
-  "deploy_request_pending": "⏳ **Deploy Request Pending**",
-  "deploy_request_rejected": "❌ **Deploy Request Rejected**",
-  "deploy_request_accepted": "✅ **Deploy Request Accepted**",
-  "deploy_restored": "🔄 **Deployment Restored**",
-  "deploy_failed_previous_success": "⚠️ **Previously Successful Deploy Failed**",
-  "deploy_succeeded_previous_failure": "🎉 **Previously Failed Deploy Succeeded**"
+  building: "🚀 **Deployment Started**",
+  ready: "✅ **Deployment Succeeded**",
+  error: "❌ **Deployment Failed**",
+  deleted: "🗑️ **Deployment Deleted**",
+  locked: "🔒 **Deployment Locked**",
+  unlocked: "🔓 **Deployment Unlocked**",
+  request_pending: "⏳ **Deploy Request Pending**",
+  request_rejected: "❌ **Deploy Request Rejected**",
+  request_accepted: "✅ **Deploy Request Accepted**",
+  restored: "🔄 **Deployment Restored**",
+  failed_previous_success: "⚠️ **Previously Successful Deploy Failed**",
+  succeeded_previous_failure: "🎉 **Previously Failed Deploy Succeeded**"
 };
 
 // Retrieve secret from GCP Secret Manager
