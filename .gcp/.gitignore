@@ -1,0 +1,53 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# Ignore Terraform plan files
+*.tfplan
+
+# Ignore Terraform provider and module caches
+.terraform/
+.terraform.lock.hcl
+
+# Ignore Terraform variables files (if they contain sensitive information)
+terraform.tfvars
+terraform.tfvars.json
+
+# Ignore override files as they are for local changes only
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore backup files created by Terraform
+*.backup
+
+# Ignore temporary files created by Terraform
+.terraform.tfstate.lock.info
+
+# Ignore local execution logs
+logs/
+
+# Ignore VS Code settings and workspace
+.vscode/
+
+# Ignore IDE and OS-generated files
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+
+# Env files created by scripts for working locally
+.env
+.env.development
+
+# Ignore terraform key file
+terraform-key.json
+
+# Ignore src files
+src/
