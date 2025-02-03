@@ -1,5 +1,5 @@
 # BTB-Blog
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64743220-021a-49dd-9cd6-985a6fbef22a/deploy-status)](https://app.netlify.com/sites/beyondthebuild/deploys)
 
 This Beyond The Build website that uses [Next.js][nextjs] for the frontend and [Sanity][sanity-homepage] to handle its content. It comes with a native Sanity Studio that offers features like real-time collaboration and visual editing with live updates using [Presentation][presentation].
 
@@ -18,24 +18,26 @@ The Studio connects to Sanity Content Lake, which gives you hosted content APIs 
 
 ## Table of Contents
 
-- [Features](#features)
-- [Table of Contents](#table-of-contents)
-- [Project Overview](#project-overview)
-  - [Important files and folders](#important-files-and-folders)
-- [ Getting Started](#configuration)
-  - [Step 1. Initialize template with Sanity CLI](#initialize-template-with-sanity-cli)
-  - [Step 2. Run app locally in development mode](#run-app-locally-in-development-mode)
-  - [Step 3. Open the app and sign in to the Studio](#open-the-app-and-sign-in-to-the-studio)
-- [Adding content with Sanity](#adding-content-with-sanity)
-  - [Step 1. Publish your first document](#publish-your-first-document)
-  - [Step 2. Extending the Sanity schema](#extending-the-sanity-schema)
-- [Deploying your application and inviting editors]()
-  - [Step 1. Deploy Next.js app to Vercel](#deploy-next.js-app-to-vercel)
-  - [Step 2. Invite a collaborator](#invite-a-collaborator)
-- [Questions and Answers](#questions-and-answers)
-  - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
-  - [How can I remove the "Next steps" block from my personal site?](#how-can-i-remove-the-next-steps-block-from-my-personal-website)
-- [Next steps](#next-steps)
+- [BTB-Blog](#btb-blog)
+  - [Features](#features)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+    - [Important files and folders](#important-files-and-folders)
+  - [Getting Started](#getting-started)
+    - [Installing the template](#installing-the-template)
+      - [1. Initialize template with Sanity CLI](#1-initialize-template-with-sanity-cli)
+      - [2. Run app locally in development mode](#2-run-app-locally-in-development-mode)
+      - [3. Open the app and sign in to the Studio](#3-open-the-app-and-sign-in-to-the-studio)
+    - [Adding content with Sanity](#adding-content-with-sanity)
+      - [1. Publish your first document](#1-publish-your-first-document)
+      - [2. Extending the Sanity schema](#2-extending-the-sanity-schema)
+    - [Deploying your application and inviting editors](#deploying-your-application-and-inviting-editors)
+      - [1. Deploy Next.js app to Vercel](#1-deploy-nextjs-app-to-vercel)
+      - [2. Invite a collaborator](#2-invite-a-collaborator)
+  - [Questions and Answers](#questions-and-answers)
+    - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
+    - [How can I remove the "Next steps" block from my personal website?](#how-can-i-remove-the-next-steps-block-from-my-personal-website)
+  - [Next steps](#next-steps)
 
 ## Project Overview
 
