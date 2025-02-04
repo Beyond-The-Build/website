@@ -1,0 +1,20 @@
+swagger: '2.0'
+info:
+  title: BTB Discord API
+  description: API Gateway for Netlify Webhook to Discord
+  version: 2.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /discord:
+    post:
+      summary: Discord Webhook
+      operationId: discordPost
+      x-google-backend:
+        address: https://europe-west2-beyond-the-build.cloudfunctions.net/netlifyToDiscord
+        protocol: h2  # Required for Cloud Functions
+      responses:
+        '200':
+          description: Success
