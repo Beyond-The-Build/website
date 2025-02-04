@@ -49,7 +49,7 @@ You can find the discord webbhook url in discord.
 The Cloud Function code is automatically zipped and uploaded to a Google Cloud Storage bucket. Ensure the function is deployed by running
 
 ## Cloud Function
-The Cloud Function handles incoming webhooks from Netlify and forwards them to a Discord channel. The function verifies JWT tokens and logs relevant information to Google Cloud Logging.
+The Cloud Function handles incoming webhooks from Netlify and forwards them to a Discord channel and logs relevant information to Google Cloud Logging.
 
 ## API Gateway
 The API Gateway routes requests to the Cloud Function. The configuration is defined in api-config.yaml.
