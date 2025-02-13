@@ -19,15 +19,10 @@ export default defineType({
           title: 'Reference',
           type: 'reference',
           to: [
-            {
-              type: 'home',
-            },
-            {
-              type: 'page',
-            },
-            {
-              type: 'project',
-            },
+            { type: 'home' },
+            { type: 'page' },
+            { type: 'project' },
+            { type: 'sitelinks' },
           ],
         },
       ],
@@ -47,13 +42,7 @@ export default defineType({
                 name: 'link',
                 type: 'object',
                 title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
+                fields: [{ name: 'href', type: 'url', title: 'Url' }],
               },
             ],
           },
@@ -65,16 +54,12 @@ export default defineType({
       title: 'Open Graph Image',
       type: 'image',
       description: 'Displayed on social cards and search engine results.',
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
     }),
   ],
   preview: {
     prepare() {
-      return {
-        title: 'Menu Items',
-      }
+      return { title: 'Menu Items' }
     },
   },
 })

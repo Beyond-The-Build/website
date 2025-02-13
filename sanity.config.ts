@@ -21,9 +21,9 @@ import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 import podcast from '@/sanity/schemas/documents/podcast'
 import speakers from '@/sanity/schemas/documents/speakers'
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Beyond The Build'
+import sitelinks from '@/sanity/schemas/documents/sitelinks'
+
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Beyond The Build'
 
 export default defineConfig({
   basePath: studioUrl,
@@ -45,19 +45,14 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
+      sitelinks,
     ],
   },
   plugins: [
-    structureTool({
-      structure: pageStructure([home, settings]),
-    }),
+    structureTool({ structure: pageStructure([home, settings]) }),
     presentationTool({
       resolve,
-      previewUrl: {
-        previewMode: {
-          enable: '/api/draft-mode/enable',
-        },
-      },
+      previewUrl: { previewMode: { enable: '/api/draft-mode/enable' } },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([home.name, settings.name]),
