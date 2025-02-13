@@ -98,3 +98,29 @@ export const settingsQuery = groq`
     ogImage,
   }
 `
+export const speakersQuery = groq`
+  *[_type == "speaker"] {
+    _id,
+    name,
+    photo,
+    bio,
+    github,
+    linkedin,
+    bluesky,
+    website,
+    "slug": slug.current,
+  }
+`
+export const speakerBySlugQuery = groq`
+  *[_type == "speaker" && slug.current == $slug][0] {
+    _id,
+    name,
+    photo,
+    bio,
+    github,
+    linkedin,
+    bluesky,
+    "slug": slug.current,
+    website,
+  }
+`

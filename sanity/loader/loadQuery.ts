@@ -11,6 +11,8 @@ import {
   podcastBySlugQuery,
   settingsQuery,
   paginatedPodcastQuery,
+  speakersQuery,
+  speakerBySlugQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
@@ -19,6 +21,7 @@ import {
   ProjectPayload,
   PodcastPayload,
   SettingsPayload,
+  SpeakerPayload,
 } from '@/types'
 
 const serverClient = client.withConfig({
@@ -108,4 +111,13 @@ export async function loadPaginatedPodcast(skip: number, pageSize: number) {
     { skip, pageSize },
     { cache: 'force-cache' },
   )
+}
+
+export function loadSpeakers() {
+  return loadQuery<SpeakerPayload | null>(speakersQuery, {})
+}
+
+export function loadSpeakerBySlug(slug: string) {
+
+  return loadQuery<SpeakerPayload | null>(speakerBySlugQuery, { slug })
 }
