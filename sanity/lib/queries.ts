@@ -92,6 +92,7 @@ export const settingsQuery = groq`
     menuItems[]->{
       _type,
       "slug": slug.current,
+      url,
       title
     },
     ogImage,

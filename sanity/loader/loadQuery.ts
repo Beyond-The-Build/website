@@ -51,10 +51,7 @@ export const loadQuery = (async (query, params = {}, options = {}) => {
   }
   return queryStore.loadQuery(query, params, {
     ...options,
-    next: {
-      revalidate,
-      ...(options.next || {}),
-    },
+    next: { revalidate, ...(options.next || {}) },
     perspective,
     // Enable stega if in Draft Mode, to enable overlays when outside Sanity Studio
     stega: (await draftMode()).isEnabled,
@@ -69,7 +66,7 @@ export function loadSettings() {
   return loadQuery<SettingsPayload>(
     settingsQuery,
     {},
-    { next: { tags: ['settings', 'home', 'page', 'project'] } },
+    { next: { tags: ['settings', 'home', 'page', 'project', 'sitelinks'] } },
   )
 }
 
@@ -107,7 +104,8 @@ export function loadPodcast(slug: string) {
 
 export async function loadPaginatedPodcast(skip: number, pageSize: number) {
   return queryStore.loadQuery(
-    paginatedPodcastQuery, 
-    { skip, pageSize }, 
-    { cache: 'force-cache' })
+    paginatedPodcastQuery,
+    { skip, pageSize },
+    { cache: 'force-cache' },
+  )
 }
