@@ -12,6 +12,7 @@ import {
   settingsQuery,
   paginatedPodcastQuery,
   speakersQuery,
+  speakerBySlugQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
@@ -113,6 +114,10 @@ export async function loadPaginatedPodcast(skip: number, pageSize: number) {
 }
 
 export function loadSpeakers() {
-  console.log(`loadSpeakers()`)
   return loadQuery<SpeakerPayload | null>(speakersQuery, {})
+}
+
+export function loadSpeakerBySlug(slug: string) {
+
+  return loadQuery<SpeakerPayload | null>(speakerBySlugQuery, { slug })
 }

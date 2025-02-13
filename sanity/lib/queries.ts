@@ -108,9 +108,10 @@ export const speakersQuery = groq`
     linkedin,
     bluesky,
     website,
+    "slug": slug.current,
   }
 `
-export const speakersBySlugQuery = groq`
+export const speakerBySlugQuery = groq`
   *[_type == "speaker" && slug.current == $slug][0] {
     _id,
     name,

@@ -4,12 +4,12 @@ import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { toPlainText } from 'next-sanity'
 
-import { PodcastPage } from '@/components/pages/podcast/PodcastPage'
+import { SpeakerPage } from '@/components/pages/speaker/SpeakerPage'  
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
-import { loadPodcast } from '@/sanity/loader/loadQuery'
-const PodcastPreview = dynamic(
-  () => import('@/components/pages/podcast/PodcastPreview'),
+import { loadSpeakerBySlug } from '@/sanity/loader/loadQuery'
+const SpeakerPreview = dynamic(
+  () => import('@/components/pages/speaker/SpeakerPreview'),
 )
 
 type Props = {
@@ -21,38 +21,38 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const params = await props.params
-  const { data: podcast } = await loadPodcast(params.slug)
-  const ogImage = urlForOpenGraphImage(podcast?.coverImage)
+  const { data: speaker } = await loadSpeakerBySlug(params.slug)
+  // const ogImage = urlForOpenGraphImage(podcast?.coverImage)
 
   return {
-    title: podcast?.title,
-    description: podcast?.overview
-      ? toPlainText(podcast.overview)
+    title: speaker?.name,
+    description: speaker?.bio
+      ? toPlainText(speaker.bio)
       : (await parent).description,
-    openGraph: ogImage
-      ? {
-          images: [ogImage, ...((await parent).openGraph?.images || [])],
-        }
-      : {},
+    // openGraph: ogImage
+    //   ? {
+    //       images: [ogImage, ...((await parent).openGraph?.images || [])],
+    //     }
+    //   : {},
   }
 }
 
 export function generateStaticParams() {
-  return generateStaticSlugs('podcast')
+  return generateStaticSlugs('speaker')
 }
 
-export default async function PodcastSlugRoute(props: Props) {
+export default async function SpeakerSlugRoute(props: Props) {
   const params = await props.params
-  const initial = await loadPodcast(params.slug)
-  console.log(`page.tsx for podcats - ${JSON.stringify(initial, null, 2)}`)
+  const initial = await loadSpeakerBySlug(params.slug)
+  // console.log(`page.tsx for speakers - ${JSON.stringify(initial, null, 2)}`)
 
   if ((await draftMode()).isEnabled) {
-    return <PodcastPreview params={params} initial={initial} />
+    return <SpeakerPreview params={params} initial={initial} />
   }
 
   if (!initial.data) {
     notFound()
   }
 
-  return <PodcastPage data={initial.data} />
+  return <SpeakerPage data={initial.data} />
 }
