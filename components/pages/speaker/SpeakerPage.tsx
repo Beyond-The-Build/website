@@ -29,8 +29,8 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
   return (
     <div>
       <div className="mb-20 space-y-6">
-        <div >
-          <h1>Speaker - {name}</h1>
+          <h1 className='text-3xl'>Speaker - {name}</h1>
+        <div className='flex sm:flex-wrap md:flex-nowrap flex-row-reverse gap-x-4 justify-center'>
           {/* Description */}
           {photo && (
 
@@ -39,34 +39,40 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
             image={photo}
             // @TODO add alt field in schema
             alt=""
-            classesWrapper="relative cover aspect-4/3"
+            height={560}
+            width={450}
+
+            classesWrapper="
+            basis-1/3
+            "
           />
           )}
-      {bio && (
-        <div>
-          <CustomPortableText value={bio} />
+          <div className='grow basis-2/3'>
+              {bio && (
+                  <CustomPortableText value={bio} />
+                
+              )}
+              {linkedin && (
+                <div>
+                  <a href={linkedin}>LinkedIn - {linkedin}</a>
+                </div>
+              )}
+              {github && (
+                <div>
+                  <a href={github}>GitHub - {github}</a>
+                </div>
+              )}
+              {bluesky && (
+                <div>
+                  <a href={bluesky}>Bluesky - {bluesky}</a>
+                </div>
+              )}
+              {website && (
+                <div>
+                  <a href={website}>Website - {website}</a>
+                </div>
+              )}
         </div>
-      )}
-      {linkedin && (
-        <div>
-          <a href={linkedin}>LinkedIn - {linkedin}</a>
-        </div>
-      )}
-      {github && (
-        <div>
-          <a href={github}>GitHub - {github}</a>
-        </div>
-      )}
-      {bluesky && (
-        <div>
-          <a href={bluesky}>Bluesky - {bluesky}</a>
-        </div>
-      )}
-      {website && (
-        <div>
-          <a href={website}>Website - {website}</a>
-        </div>
-      )}
         </div>
       </div>
     </div>
