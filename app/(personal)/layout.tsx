@@ -49,20 +49,20 @@ export default async function IndexRoute({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <div className="flex min-h-screen flex-col bg-white text-black">
+    <div className="container mx-auto">
+
         <Suspense>
           <Navbar />
         </Suspense>
-        <div className="mt-20 grow px-4 md:px-16 lg:px-32">
+        <div className="mt-10 grow px-4 md:px-16 lg:px-32">
           <Suspense>{children}</Suspense>
         </div>
         <Suspense>
           <Footer />
         </Suspense>
       
-      </div>
+
       {(await draftMode()).isEnabled && <LiveVisualEditing />}
-    </>
+    </div>
   )
 }
