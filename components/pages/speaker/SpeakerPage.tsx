@@ -1,6 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-
-
+import { FaLinkedin, FaGithub, FaGlobe} from "react-icons/fa";
+import { FaBluesky } from "react-icons/fa6";
+import {IconContext} from "react-icons";
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
@@ -28,12 +29,14 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
 
   return (
     <div>
-      <div className="mb-20 space-y-6">
-          <h1 className='text-3xl'>Speaker - {name}</h1>
-        <div className='flex sm:flex-wrap md:flex-nowrap flex-row-reverse gap-x-4 justify-center'>
-          {/* Description */}
-          {photo && (
-
+      
+      <div className="
+      max-w
+      flex flex-row items-start bg-white border border-gray-200 rounded-lg shadow-sm 
+      md:flex-row 
+      
+      ">
+        {photo && (
           <ImageBox
             data-sanity={encodeDataAttribute?.('photo')}
             image={photo}
@@ -43,38 +46,55 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
             width={450}
 
             classesWrapper="
-            basis-1/3
+            object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg
+            md:basis-2/5
+            items-start
             "
           />
-          )}
-          <div className='grow basis-2/3'>
-              {bio && (
+        )}
+   
+    {/* <img className="" src="/docs/images/blog/image-4.jpg" alt="" /> */}
+    <div className="flex flex-col justify-between p-4 leading-normal md:basis-3/5">
+      <h1 className='text-4xl'>{name}</h1>
+        {bio && (
                   <CustomPortableText value={bio} />
                 
               )}
+              <div
+                className="flex flex-row space-x-4"
+              >
               {linkedin && (
                 <div>
-                  <a href={linkedin}>LinkedIn - {linkedin}</a>
+                  <a href={linkedin} title={linkedin}>
+                      <FaLinkedin size={74} />
+                  </a>
                 </div>
               )}
               {github && (
                 <div>
-                  <a href={github}>GitHub - {github}</a>
+                  <a href={github} title={github}>
+                    <FaGithub size={74} />
+                  </a>
                 </div>
               )}
               {bluesky && (
                 <div>
-                  <a href={bluesky}>Bluesky - {bluesky}</a>
+                  <a href={bluesky} title={bluesky}>
+                    <FaBluesky size={74} />
+                  </a>
                 </div>
               )}
               {website && (
                 <div>
-                  <a href={website}>Website - {website}</a>
+                  <a href={website} title={website}>
+                    <FaGlobe size={74} />
+                  </a>
                 </div>
               )}
-        </div>
-        </div>
-      </div>
+              </div>
+    </div>
+</div>
+
     </div>
   )
 }
