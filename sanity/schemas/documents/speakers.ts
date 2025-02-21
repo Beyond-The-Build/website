@@ -32,42 +32,52 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'shortbio',
+      title: 'Short Bio',
+      type: 'array',
+      of: [{ type: 'block' }],
+    }),
+    defineField({
       name: 'bio',
       title: 'Bio',
       type: 'array',
-      of: [{ type: 'block' }]
+      of: [{ type: 'block' }],
     }),
     defineField({
       name: 'github',
       title: 'GitHub',
       type: 'url',
-      validation: (Rule) => Rule.uri({
-        scheme: ['http', 'https']
-      }),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
     }),
     defineField({
       name: 'linkedin',
       title: 'LinkedIn',
       type: 'url',
-      validation: (Rule) => Rule.uri({
-        scheme: ['http', 'https']
-      }),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
     }),
     defineField({
       name: 'bluesky',
       title: 'Bluesky',
       type: 'url',
-      validation: (Rule) => Rule.uri({
-        scheme: ['http', 'https']
-      }),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
     }),
     defineField({
       name: 'website',
       title: 'Website',
       type: 'url',
-      validation: (Rule) => Rule.uri({
-        scheme: ['http', 'https']
-      }),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
     }),
   ],
 })
