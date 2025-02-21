@@ -61,7 +61,7 @@ export interface ProjectPayload {
 }
 
 export interface PodcastPayload {
-  _id: string,
+  _id: string
   title?: string
   slug: string
   overview?: PortableTextBlock[]
@@ -76,6 +76,7 @@ export interface SpeakerPayload {
   name?: string
   photo?: Image
   bio?: PortableTextBlock[]
+  shortbio?: PortableTextBlock[]
   github?: string
   linkedin?: string
   bluesky?: string
