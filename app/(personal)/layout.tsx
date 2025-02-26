@@ -50,18 +50,16 @@ export default async function IndexRoute({
 }) {
   return (
     <div className="container mx-auto">
-
+      <div className="mt-10 grow px-4 md:px-16 lg:px-32">
         <Suspense>
           <Navbar />
         </Suspense>
-        <div className="mt-10 grow px-4 md:px-16 lg:px-32 ">
-        
-          <Suspense>{children}</Suspense>
-        </div>
-        <Suspense>
-          <Footer />
-        </Suspense>
-      
+
+        <Suspense>{children}</Suspense>
+      </div>
+      <Suspense>
+        <Footer />
+      </Suspense>
 
       {(await draftMode()).isEnabled && <LiveVisualEditing />}
     </div>
