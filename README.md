@@ -31,6 +31,7 @@ The Studio connects to Sanity Content Lake, which gives you hosted content APIs 
 - [Deploying your application and inviting editors]()
   - [Step 1. Deploy Next.js app to Vercel](#deploy-next.js-app-to-vercel)
   - [Step 2. Invite a collaborator](#invite-a-collaborator)
+- [Conventional Commits](#conventional-commits)
 - [Questions and Answers](#questions-and-answers)
   - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
   - [How can I remove the "Next steps" block from my personal site?](#how-can-i-remove-the-next-steps-block-from-my-personal-website)
@@ -116,6 +117,49 @@ You have the freedom to deploy your Next.js app to your hosting provider of choi
 Now that you’ve deployed your Next.js application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
 
 They will be able to access the deployed Studio, where you can collaborate together on creating content.
+
+## Conventional Commits
+
+This repository uses Conventional Commits to maintain a structured commit history, enabling automated release notes and changelogs.
+
+### Getting Started
+
+Ensure you have ([Node Version Manager](https://github.com/nvm-sh/nvm#installing-and-updating)) installed, then run:
+
+```bash
+nvm install
+npm install
+```
+
+### What’s Configured?
+
+#### Installed Packages
+
+The following development dependencies are installed:
+
+- [`commitizen`](https://www.npmjs.com/package/commitizen)
+- [`@digitalroute/cz-conventional-changelog-for-jira`](https://www.npmjs.com/package/@digitalroute/cz-conventional-changelog-for-jira)
+- [`@commitlint/cli`](https://www.npmjs.com/package/@commitlint/cli)
+- [`@commitlint/config-conventional`](https://www.npmjs.com/package/@commitlint/config-conventional)
+- [`husky`](https://www.npmjs.com/package/husky)
+
+#### Configuration Files
+
+| File                | Purpose                                                        |
+| ------------------- | -------------------------------------------------------------- |
+| `.commitlintrc`     | Configures commit message linting rules.                       |
+| `.czrc`             | Sets up Commitizen to use Jira-style commit messages.          |
+| `.husky/commit-msg` | Ensures commits are always prefixed with [TICKET] or [BRANCH]. |
+
+### How to Commit
+
+Instead of using `git commit -m "message"`, use:
+
+```bash
+git cz
+```
+
+This will prompt you with structured commit messages to ensure they follow Conventional Commit rules.
 
 ## Questions and Answers
 
