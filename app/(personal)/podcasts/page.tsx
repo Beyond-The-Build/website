@@ -9,7 +9,8 @@ export default async function PodcastListRoute({
   searchParams: Promise<{ page?: string }>
 }) {
   const pageSize = parseInt(process.env.NEXT_PAGE_SIZE || "15");
-  const page = searchParams?.page ? parseInt(searchParams.page, 10) : 1;
+  const resolvedSearchParams = await searchParams;
+  const page = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page, 10) : 1;
   const skip = (page - 1) * pageSize;
 
   const { podcasts, podcastCount } = (
