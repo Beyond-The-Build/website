@@ -151,16 +151,6 @@ The following development dependencies are installed:
 | `.czrc`             | Sets up Commitizen to use Jira-style commit messages.          |
 | `.husky/commit-msg` | Ensures commits are always prefixed with [TICKET] or [BRANCH]. |
 
-### How to Commit
-
-Instead of using `git commit -m "message"`, use:
-
-```bash
-git cz
-```
-
-This will prompt you with structured commit messages to ensure they follow Conventional Commit rules.
-
 ## Questions and Answers
 
 ### It doesn't work! Where can I get help?
