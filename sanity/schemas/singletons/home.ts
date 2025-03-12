@@ -72,20 +72,20 @@ export default defineType({
       ],
     }),
 
-  defineField({
-    name: 'showcasePodcasts',
-    title: 'Showcase podcasts',
-    description:
-      'These are the podcasts that will appear first on your landing page.',
-    type: 'array',
-    of: [
-      defineArrayMember({
-        type: 'reference',
-        to: [{ type: 'podcast' }],
-      }),
-    ],
-  }),
-],
+    defineField({
+      name: 'showcasePodcasts',
+      title: 'Showcase podcasts',
+      description:
+        'These are the podcasts that will appear first on your landing page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'podcast' }],
+        }),
+      ],
+    }),
+  ],
   preview: {
     select: {
       title: 'title',

@@ -1,22 +1,21 @@
 // @ts-nocheck
-import Link from 'next/link'
+import Link from "next/link";
 
-import { loadPaginatedPodcast } from '@/sanity/loader/loadQuery'
-import { PaginatedPodcastResponse,PodcastPayload } from '@/types'
+import { loadPaginatedPodcast } from "@/sanity/loader/loadQuery";
+import { PaginatedPodcastResponse, PodcastPayload } from "@/types";
 
 export default async function PodcastListRoute({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string }>
 }) {
-
-  const pageSize = parseInt(process.env.NEXT_PAGE_SIZE || '15')
-  const page = searchParams?.page ? parseInt(searchParams.page, 10) : 1
-  const skip = (page - 1) * pageSize
+  const pageSize = parseInt(process.env.NEXT_PAGE_SIZE || "15");
+  const page = searchParams?.page ? parseInt(searchParams.page, 10) : 1;
+  const skip = (page - 1) * pageSize;
 
   const { podcasts, podcastCount } = (
     await loadPaginatedPodcast(skip, pageSize)
-  ).data as PaginatedPodcastResponse
+  ).data as PaginatedPodcastResponse;
 
   return (
     <main>
@@ -29,5 +28,5 @@ export default async function PodcastListRoute({
         </div>
       ))}
     </main>
-  )
+  );
 }

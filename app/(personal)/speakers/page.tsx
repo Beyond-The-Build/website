@@ -1,21 +1,21 @@
 // @ts-nocheck
-import Link from 'next/link'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import Link from "next/link";
+import { CustomPortableText } from "@/components/shared/CustomPortableText";
 import {
   PortableText,
   type PortableTextBlock,
   type PortableTextComponents,
-} from 'next-sanity'
+} from "next-sanity";
 
-import { loadSpeakers } from '@/sanity/loader/loadQuery'
-import { SpeakerPayload } from '@/types'
-import Image from 'next/image'
+import { loadSpeakers } from "@/sanity/loader/loadQuery";
+import { SpeakerPayload } from "@/types";
+import Image from "next/image";
 
-import { urlForImage } from '@/sanity/lib/utils'
-import { CgProfile } from 'react-icons/cg'
+import { urlForImage } from "@/sanity/lib/utils";
+import { CgProfile } from "react-icons/cg";
 
 export default async function SpeakersListRoute() {
-  const speakers = await loadSpeakers()
+  const speakers = await loadSpeakers();
 
   return (
     <main>
@@ -28,7 +28,7 @@ export default async function SpeakersListRoute() {
         {speakers.data?.map((speaker, index) => (
           <div
             key={speaker._id}
-            className={`md:flex md:gap-4 border-indigo-200 rounded-lg mb-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+            className={`md:flex md:gap-4 border-indigo-200 rounded-lg mb-8 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
 
             // className="p-4 mb-8 border-2 "
           >
@@ -43,7 +43,7 @@ export default async function SpeakersListRoute() {
                   src={urlForImage(speaker.photo)
                     ?.height(400)
                     .width(400)
-                    .fit('crop')
+                    .fit("crop")
                     .url()}
                 />
               ) : (
@@ -67,5 +67,5 @@ export default async function SpeakersListRoute() {
         ))}
       </div>
     </main>
-  )
+  );
 }

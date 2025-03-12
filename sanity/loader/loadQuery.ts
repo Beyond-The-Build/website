@@ -118,6 +118,5 @@ export function loadSpeakers() {
 }
 
 export function loadSpeakerBySlug(slug: string) {
-
   return loadQuery<SpeakerPayload | null>(speakerBySlugQuery, { slug })
 }

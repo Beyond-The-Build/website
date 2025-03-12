@@ -1,15 +1,15 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { resolveHref } from '@/sanity/lib/utils'
-import type { MenuItem, SettingsPayload } from '@/types'
-import Image from 'next/image'
+import { resolveHref } from "@/sanity/lib/utils";
+import type { MenuItem, SettingsPayload } from "@/types";
+import Image from "next/image";
 
 interface NavbarProps {
   data: SettingsPayload
 }
 export default function Navbar(props: NavbarProps) {
-  const { data } = props
-  const menuItems = data?.menuItems || ([] as MenuItem[])
+  const { data } = props;
+  const menuItems = data?.menuItems || ([] as MenuItem[]);
   return (
     <header
       className="
@@ -25,26 +25,26 @@ export default function Navbar(props: NavbarProps) {
       {menuItems &&
         menuItems.map((menuItem, key) => {
           // destructring vlaur of menuItem
-          let { _type, slug, title, url } = menuItem
-          if (_type === 'sitelinks') {
-            slug = url
+          let { _type, slug, title, url } = menuItem;
+          if (_type === "sitelinks") {
+            slug = url;
           }
 
-          const href = resolveHref(_type, slug)
+          const href = resolveHref(_type, slug);
           if (!href) {
-            return null
+            return null;
           }
           return (
             <Link
               key={key}
               className={`text-lg hover:text-black md:text-xl ${
-                menuItem?._type === 'home'
-                  ? 'font-extrabold text-black'
-                  : 'text-gray-600'
+                menuItem?._type === "home"
+                  ? "font-extrabold text-black"
+                  : "text-gray-600"
               }`}
               href={href}
             >
-              {menuItem?._type === 'home' && (
+              {menuItem?._type === "home" && (
                 <div className="flex-shrink-0 ml-6 cursor-pointer rounded-full">
                   <Image
                     src="/static/logo/Beyond The Build Logo_small.webp"
@@ -55,10 +55,10 @@ export default function Navbar(props: NavbarProps) {
                   />
                 </div>
               )}
-              {menuItem?._type !== 'home' && menuItem.title}
+              {menuItem?._type !== "home" && menuItem.title}
             </Link>
-          )
+          );
         })}
     </header>
-  )
+  );
 }

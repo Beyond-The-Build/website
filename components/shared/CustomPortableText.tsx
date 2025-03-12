@@ -2,11 +2,11 @@ import {
   PortableText,
   type PortableTextBlock,
   type PortableTextComponents,
-} from 'next-sanity'
-import type { Image } from 'sanity'
+} from "next-sanity";
+import type { Image } from "sanity";
 
-import ImageBox from '@/components/shared/ImageBox'
-import { TimelineSection } from '@/components/shared/TimelineSection'
+import ImageBox from "@/components/shared/ImageBox";
+import { TimelineSection } from "@/components/shared/TimelineSection";
 
 export function CustomPortableText({
   paragraphClasses,
@@ -18,7 +18,7 @@ export function CustomPortableText({
   const components: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>
+        return <p className={paragraphClasses}>{children}</p>;
       },
     },
     marks: {
@@ -31,7 +31,7 @@ export function CustomPortableText({
           >
             {children}
           </a>
-        )
+        );
       },
     },
     types: {
@@ -53,14 +53,14 @@ export function CustomPortableText({
               </div>
             )}
           </div>
-        )
+        );
       },
       timeline: ({ value }) => {
-        const { items } = value || {}
-        return <TimelineSection timelines={items} />
+        const { items } = value || {};
+        return <TimelineSection timelines={items} />;
       },
     },
-  }
+  };
 
-  return <PortableText components={components} value={value} />
+  return <PortableText components={components} value={value} />;
 }
