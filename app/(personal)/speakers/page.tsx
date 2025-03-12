@@ -20,7 +20,7 @@ export default async function SpeakersListRoute() {
 
       {Array.isArray(speakers.data) && speakers.data.length === 0 && <p>No speakers found.</p>}
       <div className="">
-        {speakers.data?.map((speaker, index) => (
+        {Array.isArray(speakers.data) && speakers.data.map((speaker, index) => (
           <div
             key={speaker._id}
             className={`md:flex md:gap-4 border-indigo-200 rounded-lg mb-8 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
