@@ -1,8 +1,7 @@
-// @ts-nocheck
 import Link from "next/link";
 
 import { loadPaginatedPodcast } from "@/sanity/loader/loadQuery";
-import { PaginatedPodcastResponse, PodcastPayload } from "@/types";
+import { PaginatedPodcastResponse } from "@/types";
 
 export default async function PodcastListRoute({
   searchParams,

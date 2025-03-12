@@ -3,6 +3,7 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/utils";
 
 interface ImageBoxProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image?: { asset?: any }
   alt?: string
   width?: number

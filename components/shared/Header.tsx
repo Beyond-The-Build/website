@@ -2,7 +2,7 @@ import { CustomPortableText } from "@/components/shared/CustomPortableText";
 
 interface HeaderProps {
   centered?: boolean
-  description?: any[]
+  description?: string
   title?: string
 }
 export function Header(props: HeaderProps) {

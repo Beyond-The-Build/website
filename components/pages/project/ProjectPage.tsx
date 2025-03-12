@@ -24,7 +24,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     title,
   } = data ?? {};
 
-  const startYear = new Date(duration?.start!).getFullYear();
+  const startYear = duration?.start ? new Date(duration.start).getFullYear() : undefined;
   const endYear = duration?.end ? new Date(duration?.end).getFullYear() : "Now";
 
   return (
