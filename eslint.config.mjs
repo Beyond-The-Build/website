@@ -19,10 +19,10 @@ const eslintConfig = [
       "semi": ["error", "always"],
       "quotes": ["error", "double"],
       "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0, maxBOF: 0 }],
+      "eol-last": ["error", "always"],
     },
 
   })
-  
 ];
 
 export default eslintConfig;
