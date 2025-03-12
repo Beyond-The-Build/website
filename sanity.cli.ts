@@ -7,15 +7,17 @@ loadEnvConfig(__dirname, dev, { info: () => null, error: console.error })
 // @TODO report top-level await bug
 // Using a dynamic import here as `loadEnvConfig` needs to run before this file is loaded
 // const { projectId, dataset } = await import('@/lib/sanity.api')
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
-const dataset = process.env.SANITY_STUDIO_DATASET;
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID
+const dataset = process.env.SANITY_STUDIO_DATASET
 
-export default defineCliConfig({ api: { projectId, dataset },
-  studioHost: "btb",
+export default defineCliConfig({
+  api: { projectId, dataset },
+  studioHost: 'btb',
   vite: {
-	resolve: {
-		alias: {
-			"@": __dirname,
-		},
-	}
-}, });
+    resolve: {
+      alias: {
+        '@': __dirname,
+      },
+    },
+  },
+})

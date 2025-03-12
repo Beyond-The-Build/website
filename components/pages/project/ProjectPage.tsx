@@ -1,10 +1,10 @@
-import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
+import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
+import Link from "next/link";
 
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { Header } from '@/components/shared/Header'
-import ImageBox from '@/components/shared/ImageBox'
-import type { ProjectPayload } from '@/types'
+import { CustomPortableText } from "@/components/shared/CustomPortableText";
+import { Header } from "@/components/shared/Header";
+import ImageBox from "@/components/shared/ImageBox";
+import type { ProjectPayload } from "@/types";
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -22,10 +22,10 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     site,
     tags,
     title,
-  } = data ?? {}
+  } = data ?? {};
 
-  const startYear = new Date(duration?.start!).getFullYear()
-  const endYear = duration?.end ? new Date(duration?.end).getFullYear() : 'Now'
+  const startYear = new Date(duration?.start!).getFullYear();
+  const endYear = duration?.end ? new Date(duration?.end).getFullYear() : "Now";
 
   return (
     <div>
@@ -36,7 +36,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         <div className="rounded-md border">
           {/* Image  */}
           <ImageBox
-            data-sanity={encodeDataAttribute?.('coverImage')}
+            data-sanity={encodeDataAttribute?.("coverImage")}
             image={coverImage}
             // @TODO add alt field in schema
             alt=""
@@ -49,11 +49,11 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
               <div className="p-3 lg:p-4">
                 <div className="text-xs md:text-sm">Duration</div>
                 <div className="text-md md:text-lg">
-                  <span data-sanity={encodeDataAttribute?.('duration.start')}>
+                  <span data-sanity={encodeDataAttribute?.("duration.start")}>
                     {startYear}
                   </span>
-                  {' - '}
-                  <span data-sanity={encodeDataAttribute?.('duration.end')}>
+                  {" - "}
+                  <span data-sanity={encodeDataAttribute?.("duration.end")}>
                     {endYear}
                   </span>
                 </div>
@@ -108,7 +108,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
       </div>
       <div className="absolute left-0 w-screen border-t" />
     </div>
-  )
+  );
 }
 
-export default ProjectPage
+export default ProjectPage;
