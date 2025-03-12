@@ -1,5 +1,4 @@
 import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
-import Link from "next/link";
 
 import { Header } from "@/components/shared/Header";
 import type { PodcastPayload } from "@/types";
@@ -12,12 +11,10 @@ export interface PodcastPageProps {
 export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
-    coverImage,
-    description,
 
     overview,
     speakers,
-    tags,
+
     title,
   } = data ?? {};
 

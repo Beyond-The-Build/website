@@ -1,14 +1,9 @@
-// @ts-nocheck
 import Link from "next/link";
-import { CustomPortableText } from "@/components/shared/CustomPortableText";
-import {
-  PortableText,
-  type PortableTextBlock,
-  type PortableTextComponents,
-} from "next-sanity";
+
+import { PortableText } from "next-sanity";
 
 import { loadSpeakers } from "@/sanity/loader/loadQuery";
-import { SpeakerPayload } from "@/types";
+
 import Image from "next/image";
 
 import { urlForImage } from "@/sanity/lib/utils";

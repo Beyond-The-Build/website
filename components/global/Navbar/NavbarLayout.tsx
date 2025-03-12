@@ -25,7 +25,8 @@ export default function Navbar(props: NavbarProps) {
       {menuItems &&
         menuItems.map((menuItem, key) => {
           // destructring vlaur of menuItem
-          let { _type, slug, title, url } = menuItem;
+          const { _type, title, url } = menuItem;
+          let { slug } = menuItem;
           if (_type === "sitelinks") {
             slug = url;
           }
@@ -55,7 +56,7 @@ export default function Navbar(props: NavbarProps) {
                   />
                 </div>
               )}
-              {menuItem?._type !== "home" && menuItem.title}
+              {menuItem?._type !== "home" && title}
             </Link>
           );
         })}
