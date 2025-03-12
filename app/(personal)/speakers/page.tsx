@@ -15,10 +15,10 @@ export default async function SpeakersListRoute() {
   return (
     <main>
       <h1 className="mb-8 text-3xl">
-        Beyond the Build {speakers.data?.length} Speakers
+        Beyond the Build {Array.isArray(speakers.data) ? speakers.data.length : 0} Speakers
       </h1>
 
-      {speakers.length === 0 && <p>No speakers found.</p>}
+      {Array.isArray(speakers.data) && speakers.data.length === 0 && <p>No speakers found.</p>}
       <div className="">
         {speakers.data?.map((speaker, index) => (
           <div
