@@ -28,22 +28,21 @@ export default async function SpeakersListRoute() {
             // className="p-4 mb-8 border-2 "
           >
             <div className="w-16 md:w-52">
-              {speaker?.photo !== null ? (
-                <Image
-                  // className="absolute h-full w-full"
-                  className="rounded-full"
-                  alt={speaker.name}
-                  width="100"
-                  height="100"
-                  src={urlForImage(speaker.photo)
-                    ?.height(400)
-                    .width(400)
-                    .fit("crop")
-                    .url()}
-                />
-              ) : (
-                <CgProfile size="74" />
-              )}
+            {speaker?.photo !== null ? (
+              <Image
+                className="rounded-full"
+                alt={speaker.name}
+                width="100"
+                height="100"
+                src={urlForImage(speaker.photo)
+                  ?.height(400)
+                  .width(400)
+                  .fit("crop")
+                  .url() || "/static/logo/Beyond The Build Logo_small.webp"}
+              />
+            ) : (
+              <CgProfile size="74" />
+            )}
             </div>
             <div className="">
               {speaker?.bio !== null ? (

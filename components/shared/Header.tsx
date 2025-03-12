@@ -1,8 +1,9 @@
 import { CustomPortableText } from "@/components/shared/CustomPortableText";
+import { PortableTextBlock } from "@portabletext/types"; // Adjust the import based on your setup
 
 interface HeaderProps {
   centered?: boolean
-  description?: string
+  description?: PortableTextBlock[];
   title?: string
 }
 export function Header(props: HeaderProps) {
