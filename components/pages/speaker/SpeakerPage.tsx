@@ -1,12 +1,12 @@
-import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa'
-import { FaBluesky } from 'react-icons/fa6'
-import { IconContext } from 'react-icons'
+import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
+import { FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
+import { FaBluesky } from "react-icons/fa6";
+import { IconContext } from "react-icons";
 
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { CustomPortableText } from "@/components/shared/CustomPortableText";
 
-import type { SpeakerPayload } from '@/types'
-import ImageBox from '@/components/shared/ImageBox'
+import type { SpeakerPayload } from "@/types";
+import ImageBox from "@/components/shared/ImageBox";
 
 export interface SpeakerPageProps {
   data: SpeakerPayload | null
@@ -16,7 +16,7 @@ export interface SpeakerPageProps {
 export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { name, photo, bio, shortbio, github, linkedin, bluesky, website } =
-    data ?? {}
+    data ?? {};
 
   return (
     <div>
@@ -30,7 +30,7 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
       >
         {photo && (
           <ImageBox
-            data-sanity={encodeDataAttribute?.('photo')}
+            data-sanity={encodeDataAttribute?.("photo")}
             image={photo}
             // @TODO add alt field in schema
             alt=""
@@ -82,7 +82,7 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SpeakerPage
+export default SpeakerPage;

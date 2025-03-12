@@ -1,8 +1,8 @@
-import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
+import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
+import Link from "next/link";
 
-import { Header } from '@/components/shared/Header'
-import type { PodcastPayload } from '@/types'
+import { Header } from "@/components/shared/Header";
+import type { PodcastPayload } from "@/types";
 
 export interface PodcastPageProps {
   data: PodcastPayload | null
@@ -19,7 +19,7 @@ export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
     speakers,
     tags,
     title,
-  } = data ?? {}
+  } = data ?? {};
 
   return (
     <div>
@@ -35,7 +35,7 @@ export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
               speakers.map((speaker, key) => (
                 <li key={key}>
                   <div className="text-md md:text-lg">
-                    <span data-sanity={encodeDataAttribute?.('speakers.name')}>
+                    <span data-sanity={encodeDataAttribute?.("speakers.name")}>
                       {speaker.name}
                     </span>
                   </div>
@@ -45,7 +45,7 @@ export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default PodcastPage
+export default PodcastPage;
