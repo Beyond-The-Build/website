@@ -1,39 +1,8 @@
-@import 'tailwindcss';
-
-@config '../tailwind.config.js';
-
-/* https://uicolors.app/generate/ */
-@theme {
-  --color-royal-purple-50: #faf6fe;
-  --color-royal-purple-100: #f2ebfc;
-  --color-royal-purple-200: #e7dafa;
-  --color-royal-purple-300: #d5bdf5;
-  --color-royal-purple-400: #bc93ed;
-  --color-royal-purple-500: #a16ae2;
-  --color-royal-purple-600: #8b4ad3;
-  --color-royal-purple-700: #7638b8;
-  --color-royal-purple-800: #663399;
-  --color-royal-purple-900: #522a79;
-  --color-royal-purple-950: #371358;
-}
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-/* @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-} */
+/*!
+ * freebie_28_saas_landing - v1.0.0
+ * @author pixelcave
+ * Copyright (c) 2019
+ */
 html,
 body {
   font-family: 'Nunito Sans';
@@ -175,10 +144,10 @@ a:hover {
   left: -5%;
   width: 100%;
   height: 700px;
-  opacity: .52;
+  opacity: .08;
   z-index: 0;
   background: #1a2980;
-  background: linear-gradient(to right, var(--color-royal-purple-900), var(--color-royal-purple-500));
+  background: linear-gradient(to right, #1a2980, #26d0ce);
 }
 
 @media (min-width: 992px) {
@@ -189,13 +158,13 @@ a:hover {
 
 .square-1 {
   -webkit-transform: skewY(5deg);
-          transform: skewY(5deg);
+          transform: skewY(25deg);
 }
 
 .square-2 {
   left: -3%;
   -webkit-transform: skewY(3deg);
-          transform: skewY(3deg);
+          transform: skewY(35deg);
 }
 
 .square-flipped.square {
@@ -205,7 +174,7 @@ a:hover {
   left: auto;
   height: 500px;
   background: #26d0ce;
-  background: linear-gradient(to right, var(--color-royal-purple-500), var(--color-royal-purple-900));
+  background: linear-gradient(to right, #26d0ce, #1a2980);
 }
 
 @media (min-width: 992px) {
@@ -215,15 +184,15 @@ a:hover {
 }
 
 .square-flipped.square-1 {
-  -webkit-transform: skewY(-5deg);
-          transform: skewY(-5deg);
+  -webkit-transform: skewY(-2deg);
+          transform: skewY(-2deg);
 }
 
 .square-flipped.square-2 {
   left: auto;
   right: -3%;
-  -webkit-transform: skewY(-7deg);
-          transform: skewY(-7deg);
+  -webkit-transform: skewY(-4deg);
+          transform: skewY(-4deg);
 }
 
 .img-clip-overlay {
