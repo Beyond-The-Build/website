@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @config '../tailwind.config.js';
 
@@ -37,7 +37,7 @@
   --color-royal-purple-900: #522a79;
   --color-royal-purple-950: #371358;
 
-  --beige: #f2f9e0ff;
+  --beige: #f2f9e0;
   --color-beige-50: #f2f9e0;
   --color-beige-100: #ebf5d2;
   --color-beige-200: #d7eda9;
@@ -50,7 +50,7 @@
   --color-beige-900: #364b1c;
   --color-beige-950: #1b290a;
 
-  --ash-gray: #b8c6b1ff;
+  --ash-gray: #b8c6b1;
   --color-ash-gray-50: #f6f8f5;
   --color-ash-gray-100: #ebefe9;
   --color-ash-gray-200: #d7dfd3;
@@ -63,7 +63,7 @@
   --color-ash-gray-900: #313a2d;
   --color-ash-gray-950: #171e15;
 
-  --sea-green: #38945bff;
+  --sea-green: #38945b;
   --color-sea-green-50: #f0f9f2;
   --color-sea-green-100: #dbf0df;
   --color-sea-green-200: #b9e1c3;
@@ -76,7 +76,7 @@
   --color-sea-green-900: #173d28;
   --color-sea-green-950: #0c2217;
 
-  --eerie-black: #21211bff;
+  --eerie-black: #21211b;
   --color-eerie-black-50: #f7f7f6;
   --color-eerie-black-100: #e6e5e1;
   --color-eerie-black-200: #cdcbc2;
@@ -94,3 +94,5 @@ html,
 body {
   background-color: var(--color-eerie-black-50);
 }
+
+@import "./styles/assets.css";
