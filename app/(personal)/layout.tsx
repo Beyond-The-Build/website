@@ -9,6 +9,12 @@ import { Suspense } from "react";
 import { Footer } from "@/components/global/Footer";
 import { Navbar } from "@/components/global/Navbar";
 
+import { HeroComponent } from "@/components/shared/Hero";
+import { StatsComponent } from "@/components/shared/Stats";
+import { FeaturesComponent } from "@/components/shared/Features";
+import { PlansComponent } from "@/components/shared/Plans";
+import { FooterLayout } from "@/components/shared/FooterLayout";
+
 import { urlForOpenGraphImage } from "@/sanity/lib/utils";
 import { loadHomePage, loadSettings } from "@/sanity/loader/loadQuery";
 
@@ -49,19 +55,43 @@ export default async function IndexRoute({
   children: React.ReactNode
 }) {
   return (
-    <div className="container mx-auto">
-      <div className="mt-10 grow px-4 md:px-16 lg:px-32">
-        <Suspense>
-          <Navbar />
-        </Suspense>
+    <>
+      <div id="page-container" className="relative">
+          <span className="square square-1"></span>
+          <span className="square square-2"></span>
 
-        <Suspense>{children}</Suspense>
-      </div>
-      <Suspense>
-        <Footer />
-      </Suspense>
+          <div className="container">
+            <header className="py-4">
 
-      {(await draftMode()).isEnabled && <LiveVisualEditing />}
-    </div>
+              <Suspense>
+                <Navbar />
+              </Suspense>
+            </header>
+            <div className="row py-lg-5">
+              <div className="col-lg-6 py-5 text-center text-lg-left">
+                <Suspense>{children}</Suspense>
+              </div>
+            </div>
+          {/* <div className="container mx-auto">
+            <div className="mt-10 grow px-4 md:px-16 lg:px-32">
+
+            </div>
+
+            <hr />
+            <HeroComponent />
+          <StatsComponent />
+          <FeaturesComponent />
+          <PlansComponent />
+          <FooterLayout />
+
+          </div> */}
+          </div>
+            <Suspense>
+              <Footer />
+            </Suspense>
+            {(await draftMode()).isEnabled && <LiveVisualEditing />}
+        </div>
+
+    </>
   );
 }

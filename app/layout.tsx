@@ -1,10 +1,5 @@
 import "./globals.css";
 
-import { HeroComponent } from "@/components/shared/Hero";
-import { StatsComponent } from "@/components/shared/Stats";
-import { FeaturesComponent } from "@/components/shared/Features";
-import { PlansComponent } from "@/components/shared/Plans";
-import { FooterLayout } from "@/components/shared/FooterLayout";
 import { IBM_Plex_Mono, Inter, PT_Serif, Nunito_Sans } from "next/font/google";
 
 const serif = PT_Serif({
@@ -42,21 +37,10 @@ export default async function RootLayout({
     >
       <head>
         {/* TODO: remove bootstrap and fontawesome */}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossOrigin="anonymous" />
+        {/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous" /> */}
+        {/* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossOrigin="anonymous" /> */}
       </head>
-      <body>
-        <div id="page-container" className="position-relative">
-          <span className="square square-1"></span>
-          <span className="square square-2"></span>
-
-          <HeroComponent />
-          <StatsComponent />
-          <FeaturesComponent />
-          <PlansComponent />
-          <FooterLayout />
-        </div>
-        <hr />
+      <body className="bg-eerie-black-950">
         {children}
       </body>
     </html>

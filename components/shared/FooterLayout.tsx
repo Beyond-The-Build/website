@@ -1,11 +1,11 @@
 export function FooterLayout() {
   return (
-    <div className="position-relative overflow-hidden">
+    <div className="relative overflow-hidden">
 
     <span className="square square-flipped square-1"></span>
     <span className="square square-flipped square-2"></span>
 
-    <footer className="position-relative">
+    <footer className="relative">
         <div className="container container-footer text-center">
             <h2 className="font-weight-bold mb-2">
                 Get your own account

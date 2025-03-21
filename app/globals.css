@@ -15,6 +15,64 @@
   --color-royal-purple-800: #663399;
   --color-royal-purple-900: #522a79;
   --color-royal-purple-950: #371358;
+
+  --beige: #f2f9e0ff;
+--color-beige-50: #f2f9e0;
+--color-beige-100: #ebf5d2;
+--color-beige-200: #d7eda9;
+--color-beige-300: #bcdf77;
+--color-beige-400: #a0ce4d;
+--color-beige-500: #82b42e;
+--color-beige-600: #658f21;
+--color-beige-700: #4d6e1d;
+--color-beige-800: #3f571d;
+--color-beige-900: #364b1c;
+--color-beige-950: #1b290a;
+
+  --ash-gray: #b8c6b1ff;
+--color-ash-gray-50: #f6f8f5;
+--color-ash-gray-100: #ebefe9;
+--color-ash-gray-200: #d7dfd3;
+--color-ash-gray-300: #b8c6b1;
+--color-ash-gray-400: #8fa385;
+--color-ash-gray-500: #6e8463;
+--color-ash-gray-600: #576b4e;
+--color-ash-gray-700: #475540;
+--color-ash-gray-800: #3a4635;
+--color-ash-gray-900: #313a2d;
+--color-ash-gray-950: #171e15;
+
+
+  --sea-green: #38945bff;
+  --color-sea-green-50: #f0f9f2;
+--color-sea-green-100: #dbf0df;
+--color-sea-green-200: #b9e1c3;
+--color-sea-green-300: #8acb9e;
+--color-sea-green-400: #59ae77;
+--color-sea-green-500: #38945b;
+--color-sea-green-600: #277446;
+--color-sea-green-700: #1f5d39;
+--color-sea-green-800: #1b4a2f;
+--color-sea-green-900: #173d28;
+--color-sea-green-950: #0c2217;
+
+
+  --eerie-black: #21211bff;
+--color-eerie-black-50: #f7f7f6;
+--color-eerie-black-100: #e6e5e1;
+--color-eerie-black-200: #cdcbc2;
+--color-eerie-black-300: #acaa9c;
+--color-eerie-black-400: #8a8877;
+--color-eerie-black-500: #706e5c;
+--color-eerie-black-600: #595748;
+--color-eerie-black-700: #49483c;
+--color-eerie-black-800: #3c3b33;
+--color-eerie-black-900: #34342d;
+--color-eerie-black-950: #21211b;
+
+
+
+
 }
 
 /*
@@ -37,7 +95,7 @@
 html,
 body {
   font-family: 'Nunito Sans';
-  background: #f6f7ff;
+  /* background: var(--color-eerie-black-50); */
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -155,7 +213,7 @@ a:hover {
   width: 100%;
   min-width: 320px;
   margin: 0 auto;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .container.container-big {
@@ -164,7 +222,7 @@ a:hover {
 }
 
 .container.container-footer {
-  padding-top: 14rem;
+  padding-top: 7rem;
   padding-bottom: 2rem;
 }
 
@@ -183,7 +241,7 @@ a:hover {
 
 @media (min-width: 992px) {
   .square {
-    width: 71%;
+    width: 80%;
   }
 }
 
@@ -203,9 +261,9 @@ a:hover {
   right: -5%;
   bottom: -9%;
   left: auto;
-  height: 500px;
-  background: #26d0ce;
-  background: linear-gradient(to right, var(--color-royal-purple-500), var(--color-royal-purple-900));
+  height: 350px;
+  background: var(--color-sea-green-50),;
+  background: linear-gradient(to right, var(--color-sea-green-500), var(--color-sea-green-900));
 }
 
 @media (min-width: 992px) {

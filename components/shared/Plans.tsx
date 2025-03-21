@@ -6,7 +6,7 @@ export function PlansComponent() {
                 </h2>
                 <div className="row text-center pt-5">
                     <div className="col-sm-6 col-lg-4 offset-lg-2 my-2">
-                        <div className="bg-light rounded-xl py-5 px-3 position-relative">
+                        <div className="bg-light rounded-xl py-5 px-3 relative">
                             <span className="text-back">
                                 <i className="fa fa-code"></i>
                             </span>
@@ -33,7 +33,7 @@ export function PlansComponent() {
                         </div>
                     </div>
                     <div className="col-sm-6 col-lg-4 my-2">
-                        <div className="bg-light rounded-xl py-5 px-3 position-relative">
+                        <div className="bg-light rounded-xl py-5 px-3 relative">
                             <span className="text-back">
                                 <i className="fa fa-globe"></i>
                             </span>
