@@ -17,10 +17,6 @@
     "install-husky": "husky && git config core.hooksPath .husky",
     "prepare": "npm run install-husky && npm run install-commitizen"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@next/env": "15.2.3",
