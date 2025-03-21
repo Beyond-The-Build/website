@@ -1,28 +1,27 @@
 import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
-import { FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
+import { FaGithub, FaGlobe, FaLinkedin } from "react-icons/fa";
 import { FaBluesky } from "react-icons/fa6";
 
 import { CustomPortableText } from "@/components/shared/CustomPortableText";
 
-import type { SpeakerPayload } from "@/types";
 import ImageBox from "@/components/shared/ImageBox";
+import type { SpeakerPayload } from "@/types";
 
 export interface SpeakerPageProps {
-  data: SpeakerPayload | null
-  encodeDataAttribute?: EncodeDataAttributeCallback
+  data: SpeakerPayload | null;
+  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
 export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { name, photo, bio, github, linkedin, bluesky, website } =
-    data ?? {};
+  const { name, photo, bio, github, linkedin, bluesky, website } = data ?? {};
 
   return (
     <div>
       <div
         className="
       max-w
-      flex flex-row items-start bg-white border border-gray-200 rounded-lg shadow-sm 
+      flex flex-row items-start  border border-gray-200 rounded-lg shadow-sm 
       md:flex-row   
       "
       >
