@@ -49,11 +49,11 @@ export default async function IndexRoute({
   children: React.ReactNode;
 }) {
   return (
-    <div id="page-container" className="relative">
+    <div id="page-container" className="relative flex flex-col min-h-screen">
       <span className="square square-1"></span>
       <span className="square square-2"></span>
 
-      <div className="BTB container mx-auto">
+      <div className="BTB container mx-auto flex-1">
         <div className="mt-10 grow px-4 md:px-16 lg:px-32">
           <Suspense>
             <Navbar />
@@ -62,11 +62,13 @@ export default async function IndexRoute({
           <Suspense>{children}</Suspense>
         </div>
       </div>
-      <Suspense>
-        <Footer />
-      </Suspense>
-      <hr />
-      <Colours />
+      <div className="BTB container mx-auto">
+        <Suspense>
+          <Footer />
+        </Suspense>
+        <hr />
+        <Colours />
+      </div>
       {(await draftMode()).isEnabled && <LiveVisualEditing />}
     </div>
   );
