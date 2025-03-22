@@ -13,7 +13,7 @@
     "sanity-build": "sanity build",
     "sanity-deploy": "sanity deploy",
     "type-check": "tsc --noEmit",
-    "install-commitizen": "git config --local commitizen.path './node_modules/.bin/cz' && git config --local alias.cz '!npx cz'",
+    "install-commitizen": "git config --local commitizen.path './node_modules/.bin/cz'",
     "install-husky": "husky && git config core.hooksPath .husky",
     "prepare": "npm run install-husky && npm run install-commitizen"
   },
