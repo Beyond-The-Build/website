@@ -1,4 +1,4 @@
-import { groq } from 'next-sanity'
+import { groq } from "next-sanity";
 
 export const homePageQuery = groq`
   *[_type == "home"][0]{
@@ -22,7 +22,7 @@ export const homePageQuery = groq`
     },
     title,
   }
-`
+`;
 
 export const paginatedPodcastQuery = groq`
 {
@@ -38,7 +38,7 @@ export const paginatedPodcastQuery = groq`
     speakers
   },
 }
-`
+`;
 
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
@@ -48,7 +48,7 @@ export const pagesBySlugQuery = groq`
     title,
     "slug": slug.current,
   }
-`
+`;
 
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
@@ -63,7 +63,7 @@ export const projectBySlugQuery = groq`
     tags,
     title,
   }
-`
+`;
 
 export const podcastBySlugQuery = groq`
   *[_type == "podcast" && slug.current == $slug][0] {
@@ -84,7 +84,7 @@ export const podcastBySlugQuery = groq`
       "slug": slug.current
     }
   }
-`
+`;
 
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
@@ -97,7 +97,7 @@ export const settingsQuery = groq`
     },
     ogImage,
   }
-`
+`;
 export const speakersQuery = groq`
   *[_type == "speaker"] {
     _id,
@@ -111,7 +111,7 @@ export const speakersQuery = groq`
     website,
     "slug": slug.current,
   }
-`
+`;
 export const speakerBySlugQuery = groq`
   *[_type == "speaker" && slug.current == $slug][0] {
     _id,
@@ -125,4 +125,4 @@ export const speakerBySlugQuery = groq`
     "slug": slug.current,
     website,
   }
-`
+`;
