@@ -31,7 +31,7 @@
   right: -5%;
   bottom: -9%;
   left: auto;
-  height: 500px;
+  height: 135px;
   background: var(--color-ash-gray-300);
   background: linear-gradient(
     to right,
@@ -41,15 +41,15 @@
 }
 
 .square-flipped.square-1 {
-  -webkit-transform: skewY(-2deg);
-  transform: skewY(-2deg);
+  -webkit-transform: skewY(-38deg);
+  transform: skewY(-38deg);
 }
 
 .square-flipped.square-2 {
   left: auto;
-  right: -3%;
-  -webkit-transform: skewY(-4deg);
-  transform: skewY(-4deg);
+  right: -15%;
+  -webkit-transform: skewY(-28deg);
+  transform: skewY(-28deg);
 }
 .BTB {
   position: relative;

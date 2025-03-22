@@ -49,7 +49,10 @@ export default async function IndexRoute({
   children: React.ReactNode;
 }) {
   return (
-    <div id="page-container" className="relative flex flex-col min-h-screen">
+    <div
+      id="page-container"
+      className="relative flex flex-col min-h-screen text-eerie-black-950"
+    >
       <span className="square square-1"></span>
       <span className="square square-2"></span>
 
@@ -78,29 +81,39 @@ function Colours() {
   return (
     <div className="grid grid-cols-5 text-center">
       <div className="bg-royal-purple-800">
-        Royal Purple&nbsp;
-        <br />
-        royal-purple-800
+        <span className="hidden sm:block">
+          Royal Purple&nbsp;
+          <br />
+          royal-purple-800
+        </span>
       </div>
       <div className="bg-beige-50">
-        Beige&nbsp;
-        <br />
-        beige-50
+        <span className="hidden sm:block">
+          Beige&nbsp;
+          <br />
+          beige-50
+        </span>
       </div>
       <div className="bg-ash-gray-300">
-        Ash Gray&nbsp;
-        <br />
-        ash-gray-300
+        <span className="hidden sm:block">
+          Ash Gray&nbsp;
+          <br />
+          ash-gray-300
+        </span>
       </div>
       <div className="bg-sea-green-500">
-        Sea Green&nbsp;
-        <br />
-        sea-green-500
+        <span className="hidden sm:block">
+          Sea Green&nbsp;
+          <br />
+          sea-green-500
+        </span>
       </div>
       <div className="bg-eerie-black-950 text-ash-gray-300">
-        Eerie Black&nbsp;
-        <br />
-        eerie-black-950
+        <span className="hidden sm:block">
+          Eerie Black&nbsp;
+          <br />
+          eerie-black-950
+        </span>
       </div>
     </div>
   );

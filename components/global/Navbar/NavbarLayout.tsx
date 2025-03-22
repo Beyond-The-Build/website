@@ -5,7 +5,7 @@ import type { MenuItem, SettingsPayload } from "@/types";
 import Image from "next/image";
 
 interface NavbarProps {
-  data: SettingsPayload
+  data: SettingsPayload;
 }
 export default function Navbar(props: NavbarProps) {
   const { data } = props;
@@ -40,8 +40,8 @@ export default function Navbar(props: NavbarProps) {
               key={key}
               className={`text-lg hover:text-black md:text-xl ${
                 menuItem?._type === "home"
-                  ? "font-extrabold text-black"
-                  : "text-gray-600"
+                  ? "font-extrabold text-eerie-black-950"
+                  : ""
               }`}
               href={href}
             >

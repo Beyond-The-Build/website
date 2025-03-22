@@ -2,9 +2,9 @@ import { CustomPortableText } from "@/components/shared/CustomPortableText";
 import { PortableTextBlock } from "@portabletext/types"; // Adjust the import based on your setup
 
 interface HeaderProps {
-  centered?: boolean
+  centered?: boolean;
   description?: PortableTextBlock[];
-  title?: string
+  title?: string;
 }
 export function Header(props: HeaderProps) {
   const { title, description, centered = false } = props;
@@ -21,7 +21,7 @@ export function Header(props: HeaderProps) {
       )}
       {/* Description */}
       {description && (
-        <div className="mt-4 font-serif text-xl text-gray-600 md:text-2xl">
+        <div className="mt-4 font-serif text-xl md:text-2xl">
           <CustomPortableText value={description} />
         </div>
       )}
