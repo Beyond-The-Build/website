@@ -5,8 +5,8 @@ export function TimelineItem({
   isLast,
   milestone,
 }: {
-  isLast: boolean
-  milestone: MilestoneItem
+  isLast: boolean;
+  milestone: MilestoneItem;
 }) {
   const { description, duration, image, tags, title } = milestone;
   const startYear = duration?.start
@@ -37,7 +37,7 @@ export function TimelineItem({
         {/* Title */}
         <div className="font-bold text-black">{title}</div>
         {/* Tags */}
-        <div className="text-sm text-gray-600 ">
+        <div className="text-sm">
           {tags?.map((tag, key) => (
             <span key={key}>
               {tag}
@@ -47,7 +47,7 @@ export function TimelineItem({
           {startYear} - {endYear}
         </div>
         {/* Description */}
-        <div className="pb-5 pt-3 font-serif text-gray-600">{description}</div>
+        <div className="pb-5 pt-3 font-serif">{description}</div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { Header } from "@/components/shared/Header";
 import type { PagePayload } from "@/types";
 
 export interface PageProps {
-  data: PagePayload | null
+  data: PagePayload | null;
 }
 
 export function Page({ data }: PageProps) {
@@ -19,7 +19,7 @@ export function Page({ data }: PageProps) {
         {/* Body */}
         {body && (
           <CustomPortableText
-            paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
+            paragraphClasses="font-serif max-w-3xl text-xl"
             value={body}
           />
         )}

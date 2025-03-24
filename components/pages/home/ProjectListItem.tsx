@@ -5,8 +5,8 @@ import ImageBox from "@/components/shared/ImageBox";
 import type { ShowcaseProject } from "@/types";
 
 interface ProjectProps {
-  project: ShowcaseProject
-  odd: number
+  project: ShowcaseProject;
+  odd: number;
 }
 
 export function ProjectListItem(props: ProjectProps) {
@@ -41,7 +41,7 @@ function TextBox({ project }: { project: ShowcaseProject }) {
           {project.title}
         </div>
         {/* Overview  */}
-        <div className="font-serif text-gray-500">
+        <div className="font-serif">
           <CustomPortableText value={project.overview as PortableTextBlock[]} />
         </div>
       </div>

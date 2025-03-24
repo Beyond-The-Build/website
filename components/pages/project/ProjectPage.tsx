@@ -7,8 +7,8 @@ import ImageBox from "@/components/shared/ImageBox";
 import type { ProjectPayload } from "@/types";
 
 export interface ProjectPageProps {
-  data: ProjectPayload | null
-  encodeDataAttribute?: EncodeDataAttributeCallback
+  data: ProjectPayload | null;
+  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
 export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
@@ -24,7 +24,9 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     title,
   } = data ?? {};
 
-  const startYear = duration?.start ? new Date(duration.start).getFullYear() : undefined;
+  const startYear = duration?.start
+    ? new Date(duration.start).getFullYear()
+    : undefined;
   const endYear = duration?.end ? new Date(duration?.end).getFullYear() : "Now";
 
   return (
@@ -101,7 +103,8 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {description && (
           <CustomPortableText
-            paragraphClasses="font-serif max-w-3xl text-xl text-gray-600"
+            paragraphClasses="font-serif max-w-3xl text-xl
+            "
             value={description}
           />
         )}

@@ -1,0 +1,61 @@
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+.square {
+  position: absolute;
+  display: block;
+  top: -5%;
+  left: -5%;
+  width: 75%;
+  height: 550px;
+  opacity: 0.4;
+  z-index: 0;
+  background: var(--color-royal-purple-800);
+  /* background: linear-gradient(to right, #1a2980, #26d0ce); */
+  background: linear-gradient(
+    to right,
+    var(--color-royal-purple-800),
+    var(--color-royal-purple-50)
+  );
+}
+
+.square-1 {
+  -webkit-transform: skewY(5deg);
+  transform: skewY(5deg);
+}
+.square-2 {
+  left: -3%;
+  -webkit-transform: skewY(3deg);
+  transform: skewY(3deg);
+}
+
+.square-flipped.square {
+  top: auto;
+  right: -5%;
+  bottom: -9%;
+  left: auto;
+  height: 135px;
+  background: var(--color-ash-gray-300);
+  background: linear-gradient(
+    to right,
+    var(--color-ash-gray-50),
+    var(--color-ash-gray-300)
+  );
+}
+
+.square-flipped.square-1 {
+  -webkit-transform: skewY(-38deg);
+  transform: skewY(-38deg);
+}
+
+.square-flipped.square-2 {
+  left: auto;
+  right: -15%;
+  -webkit-transform: skewY(-28deg);
+  transform: skewY(-28deg);
+}
+.BTB {
+  position: relative;
+  z-index: 1;
+}
