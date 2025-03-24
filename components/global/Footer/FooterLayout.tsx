@@ -28,7 +28,7 @@ export default function Footer(props: FooterProps) {
           )}
           {discordLink && (
             <Link
-              href={discordLink?.url}
+              href={discordLink?.url || "#"}
               className="
               text-white 
               bg-sea-green-700 
