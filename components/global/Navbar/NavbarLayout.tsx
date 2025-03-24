@@ -15,7 +15,7 @@ export default function Navbar(props: NavbarProps) {
     <header>
       <nav className="flex flex-wrap items-center lg:py-0 py-2">
         <div className="flex-1 flex justify-between items-center">
-          <a href="https://rz-codes.com" className="flex text-lg font-semibold">
+          <Link href="/" className="flex text-lg font-semibold">
             <Image
               src="/static/logo/Beyond The Build Logo_small.webp"
               alt="Beyond The Build"
@@ -24,7 +24,7 @@ export default function Navbar(props: NavbarProps) {
               className="rounded-full mr-2"
             />
             <div className="mt-3">Beyond The Build</div>
-          </a>
+          </Link>
         </div>
         <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">
           <RiMenuFill className="inline" />
