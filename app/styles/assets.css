@@ -1,3 +1,7 @@
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
 .square {
   position: absolute;
   display: block;
