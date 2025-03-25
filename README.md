@@ -81,6 +81,18 @@ They will be able to access the deployed Studio, where you can collaborate toget
 
 This repository uses Conventional Commits to maintain a structured commit history, enabling automated release notes and changelogs.
 
+### Optional
+
+When running `git commit`, it will often:
+
+- Start the Commitizen prompt, but forget your original commit message, and
+- Sometimes open your editor after the prompt finishes, asking you to re-confirm or rewrite the message.
+
+To avoid this confusion and make the commit process smoother, you can use `git cz` as a shortcut:
+```shell
+git config --local alias.cz '!npx cz'
+```
+
 ### What’s Configured?
 
 #### Installed Packages
