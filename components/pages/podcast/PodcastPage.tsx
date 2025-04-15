@@ -1,22 +1,18 @@
 import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
 
+import { CustomPortableText } from "@/components/shared/CustomPortableText";
 import { Header } from "@/components/shared/Header";
 import type { PodcastPayload } from "@/types";
+import Link from "next/link";
 
 export interface PodcastPageProps {
-  data: PodcastPayload | null
-  encodeDataAttribute?: EncodeDataAttributeCallback
+  data: PodcastPayload | null;
+  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
 export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const {
-
-    overview,
-    speakers,
-
-    title,
-  } = data ?? {};
+  const { overview, speakers, description, title } = data ?? {};
 
   return (
     <div>
@@ -24,6 +20,7 @@ export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
         {/* Header */}
 
         <Header title={title} description={overview} />
+        {description && <CustomPortableText value={description} />}
 
         <div className="divide-inherit grid grid-cols-1 divide-y lg:grid-cols-4 lg:divide-x lg:divide-y-0">
           <h3>Speakers</h3>
@@ -33,7 +30,9 @@ export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
                 <li key={key}>
                   <div className="text-md md:text-lg">
                     <span data-sanity={encodeDataAttribute?.("speakers.name")}>
-                      {speaker.name}
+                      <Link href={`/speakers/${speaker.slug}`}>
+                        {speaker.name}
+                      </Link>
                     </span>
                   </div>
                 </li>

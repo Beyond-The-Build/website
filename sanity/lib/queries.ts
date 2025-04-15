@@ -27,7 +27,7 @@ export const homePageQuery = groq`
 export const paginatedPodcastQuery = groq`
 {
   "podcastCount": count(*[_type == "podcast"]),
-  "podcasts": *[_type == "podcast"] | order(_id) [$skip...$pageSize] {
+  "podcasts": *[_type == "podcast"] | order(season desc, episodeNumber desc) [$skip...$pageSize] {
     _id,
     "slug": slug.current,
     title,
@@ -35,7 +35,9 @@ export const paginatedPodcastQuery = groq`
     coverImage,
     tags,
     description,
-    speakers
+    speakers,
+    season,
+    episodeNumber
   },
 }
 `;
@@ -124,5 +126,16 @@ export const speakerBySlugQuery = groq`
     bluesky,
     "slug": slug.current,
     website,
+    "podcasts": *[_type == "podcast" && references(^._id)] | order(season desc, episodeNumber desc){
+      _id,
+      title,
+      "slug": slug.current,
+      overview,
+      coverImage,
+      tags,
+      season,
+      episodeNumber,
+      dateRecorded
+    }
   }
 `;
