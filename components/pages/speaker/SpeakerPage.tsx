@@ -6,6 +6,7 @@ import { CustomPortableText } from "@/components/shared/CustomPortableText";
 
 import ImageBox from "@/components/shared/ImageBox";
 import type { SpeakerPayload } from "@/types";
+import Link from "next/link";
 
 export interface SpeakerPageProps {
   data: SpeakerPayload | null;
@@ -14,7 +15,8 @@ export interface SpeakerPageProps {
 
 export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { name, photo, bio, github, linkedin, bluesky, website } = data ?? {};
+  const { name, photo, bio, github, linkedin, bluesky, website, podcasts } =
+    data ?? {};
 
   return (
     <div>
@@ -75,6 +77,29 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
                 </a>
               </div>
             )}
+          </div>
+          <div>
+            <h2 className="text-3xl">Appears on the following Episodes:</h2>
+            <ol>
+              {podcasts &&
+                podcasts.map((podcast, key) => (
+                  <li key={key}>
+                    <div className="text-md md:text-lg">
+                      <span
+                        data-sanity={encodeDataAttribute?.("podcasts.title")}
+                      >
+                        <Link href={`/podcasts/${podcast.slug}`}>
+                          S{podcast.season?.toString().padStart(2, "0")}-E
+                          {podcast.episodeNumber
+                            ?.toString()
+                            .padStart(3, "0")}{" "}
+                          {podcast.title}
+                        </Link>
+                      </span>
+                    </div>
+                  </li>
+                ))}
+            </ol>
           </div>
         </div>
       </div>
