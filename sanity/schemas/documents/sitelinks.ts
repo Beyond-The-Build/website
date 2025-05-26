@@ -1,23 +1,23 @@
-import { defineField, defineType, Rule } from 'sanity'
-import { FaLink } from 'react-icons/fa'
+import { FaLink } from "react-icons/fa";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'sitelinks',
-  title: 'Site Links',
-  type: 'document',
+  name: "sitelinks",
+  title: "Site Links",
+  type: "document",
   icon: FaLink,
   fields: [
     defineField({
-      type: 'string',
-      name: 'title',
-      title: 'Title',
+      type: "string",
+      name: "title",
+      title: "Title",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({ type: 'string', name: 'description', title: 'Description' }),
-    defineField({ name: 'url', title: 'URL', type: 'string' }),
+    defineField({ type: "string", name: "description", title: "Description" }),
+    defineField({ name: "url", title: "URL", type: "string" }),
   ],
   preview: {
-    select: { duration: 'duration', image: 'image', title: 'title' },
+    select: { duration: "duration", image: "image", title: "title" },
     prepare({ duration, image, title }) {
       return {
         media: image,
@@ -26,9 +26,9 @@ export default defineType({
           duration?.end && new Date(duration.end).getFullYear(),
         ]
           .filter(Boolean)
-          .join(' - '),
+          .join(" - "),
         title,
-      }
+      };
     },
   },
-})
+});

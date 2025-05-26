@@ -1,27 +1,39 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import dynamic from "next/dynamic";
+import { toPlainText } from "next-sanity";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-import { toPlainText } from "next-sanity";
 
-import { PodcastPage } from "@/components/pages/podcast/PodcastPage";
+import { CustomPortableText } from "@/components/CustomPortableText";
+import { Header } from "@/components/shared/Header";
+import { sanityFetch } from "@/sanity/lib/live";
+import { podcastBySlugQuery } from "@/sanity/lib/queries";
 import { urlForOpenGraphImage } from "@/sanity/lib/utils";
 import { generateStaticSlugs } from "@/sanity/loader/generateStaticSlugs";
-import { loadPodcast } from "@/sanity/loader/loadQuery";
-const PodcastPreview = dynamic(
-  () => import("@/components/pages/podcast/PodcastPreview"),
-);
+import type { PodcastPayload } from "@/types";
+import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
+import Link from "next/link";
 
-type Props = {
-  params: Promise<{ slug: string }>
+export interface PodcastPageProps {
+  data: PodcastPayload | null;
+  encodeDataAttribute?: EncodeDataAttributeCallback;
 }
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateMetadata(
-  props: Props,
-  parent: ResolvingMetadata,
+  { params }: Props,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const params = await props.params;
-  const { data: podcast } = await loadPodcast(params.slug);
+  const { data: podcast } = await sanityFetch({
+    query: podcastBySlugQuery,
+    params,
+    stega: false,
+  });
+
+  // const { slug } = props.params;
+  // const { data: podcast } = await loadPodcast(slug);
   const ogImage = urlForOpenGraphImage(podcast?.coverImage);
 
   return {
@@ -41,18 +53,50 @@ export function generateStaticParams() {
   return generateStaticSlugs("podcast");
 }
 
-export default async function PodcastSlugRoute(props: Props) {
-  const params = await props.params;
-  const initial = await loadPodcast(params.slug);
-  console.log(`page.tsx for podcats - ${JSON.stringify(initial, null, 2)}`);
+export default async function PodcastSlugRoute({ params }: Props) {
+  const { data } = await sanityFetch({ query: podcastBySlugQuery, params });
 
-  if ((await draftMode()).isEnabled) {
-    return <PodcastPreview params={params} initial={initial} />;
-  }
-
-  if (!initial.data) {
+  if (!data?._id && !(await draftMode()).isEnabled) {
     notFound();
   }
+  const { overview, title, speakers, description } = data ?? {};
 
-  return <PodcastPage data={initial.data} />;
+  return (
+    <div>
+      <div className="mb-20 space-y-6">
+        {/* Header */}
+        <Header
+          // id={data?._id || null}
+          // type={data?._type || null}
+          // path={["overview"]}
+          title={title || (data?._id ? "Untitled" : "404 Page Not Found")}
+          description={overview}
+        />
+        {description && (
+          <CustomPortableText
+            id={data?._id || null}
+            type={data?._type || null}
+            path={["description"]}
+            value={description}
+          />
+        )}
+
+        <div className="divide-inherit grid grid-cols-1 divide-y lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+          <h3>Speakers</h3>
+          <ol>
+            {speakers &&
+              speakers.map((speaker, key) => (
+                <li key={key}>
+                  <div className="text-md md:text-lg">
+                    <Link href={`/speakers/${speaker.slug}`}>
+                      {speaker.name}
+                    </Link>
+                  </div>
+                </li>
+              ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  );
 }

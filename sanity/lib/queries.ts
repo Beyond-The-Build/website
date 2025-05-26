@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-
+// TODO: Replace with defineQuery
 export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
@@ -27,7 +27,7 @@ export const homePageQuery = groq`
 export const paginatedPodcastQuery = groq`
 {
   "podcastCount": count(*[_type == "podcast"]),
-  "podcasts": *[_type == "podcast"] | order(season desc, episodeNumber desc) [$skip...$pageSize] {
+  "podcasts": *[_type == "podcast"] | order(season desc, episodeNumber desc) [$skip...$limit] {
     _id,
     "slug": slug.current,
     title,
@@ -138,4 +138,8 @@ export const speakerBySlugQuery = groq`
       dateRecorded
     }
   }
+`;
+
+export const slugsByTypeQuery = groq`
+  *[_type == $type && defined(slug.current)]{"slug": slug.current}
 `;

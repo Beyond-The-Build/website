@@ -1,26 +1,27 @@
+import { SpeakerPage } from "@/components/pages/speaker/SpeakerPage";
+import { sanityFetch } from "@/sanity/lib/live";
+import { speakerBySlugQuery } from "@/sanity/lib/queries";
+import { generateStaticSlugs } from "@/sanity/loader/generateStaticSlugs";
 import type { Metadata, ResolvingMetadata } from "next";
-import dynamic from "next/dynamic";
+import { toPlainText } from "next-sanity";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-import { toPlainText } from "next-sanity";
-
-import { SpeakerPage } from "@/components/pages/speaker/SpeakerPage";
-import { generateStaticSlugs } from "@/sanity/loader/generateStaticSlugs";
-import { loadSpeakerBySlug } from "@/sanity/loader/loadQuery";
-const SpeakerPreview = dynamic(
-  () => import("@/components/pages/speaker/SpeakerPreview"),
-);
 
 type Props = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 export async function generateMetadata(
   props: Props,
-  parent: ResolvingMetadata,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const params = await props.params;
-  const { data: speaker } = await loadSpeakerBySlug(params.slug);
+  // const { data: speaker } = await loadSpeakerBySlug(params.slug);
+  const { data: speaker } = await sanityFetch({
+    query: speakerBySlugQuery,
+    params,
+    stega: false,
+  });
 
   return {
     title: speaker?.name,
@@ -36,15 +37,16 @@ export function generateStaticParams() {
 
 export default async function SpeakerSlugRoute(props: Props) {
   const params = await props.params;
-  const initial = await loadSpeakerBySlug(params.slug);
+  // const initial = await loadSpeakerBySlug(params.slug);
+  const { data: speaker } = await sanityFetch({
+    query: speakerBySlugQuery,
+    params,
+    stega: false,
+  });
 
-  if ((await draftMode()).isEnabled) {
-    return <SpeakerPreview params={params} initial={initial} />;
-  }
-
-  if (!initial.data) {
+  if (!speaker?._id && !(await draftMode()).isEnabled) {
     notFound();
   }
 
-  return <SpeakerPage data={initial.data} />;
+  return <SpeakerPage data={speaker} />;
 }

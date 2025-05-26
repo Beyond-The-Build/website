@@ -2,7 +2,8 @@
   "name": "beyond-the-build",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "next build && sanity manifest extract --path public/studio/static",
+    "predev": "npm run typegen",
     "clean": "next clean",
     "dev": "next --turbopack",
     "dev2": "next dev",
@@ -13,6 +14,7 @@
     "sanity-build": "sanity build",
     "sanity-deploy": "sanity deploy",
     "type-check": "tsc --noEmit",
+    "typegen": "sanity schema extract && sanity typegen generate",
     "install-commitizen": "git config --local commitizen.path './node_modules/.bin/cz'",
     "install-husky": "husky && git config core.hooksPath .husky",
     "prepare": "npm run install-husky && npm run install-commitizen"
@@ -20,6 +22,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@next/env": "15.3.2",
+    "@sanity/client": "7.1.0",
     "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "1.1.0",
     "@sanity/react-loader": "^1.11.10",
@@ -32,11 +35,13 @@
     "next-sanity": "^9.11.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-live-transitions": "0.2.0",
     "react-icons": "^5.5.0",
     "rxjs": "7.8.2",
     "sanity": "^3.89.0",
     "sanity-plugin-asset-source-unsplash": "3.0.3",
     "server-only": "0.0.1",
+    "sonner": "2.0.3",
     "styled-components": "6.1.18"
   },
   "devDependencies": {
@@ -48,6 +53,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "beta",
     "commitizen": "^4.3.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",

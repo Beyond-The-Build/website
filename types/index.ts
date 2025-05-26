@@ -9,6 +9,7 @@ export interface MenuItem {
 }
 
 export interface MilestoneItem {
+  _key?: string;
   description?: string;
   duration?: {
     start?: string;
@@ -20,6 +21,7 @@ export interface MilestoneItem {
 }
 
 export interface ShowcaseProject {
+  _id: string;
   _type: string;
   coverImage?: Image;
   overview?: PortableTextBlock[];
