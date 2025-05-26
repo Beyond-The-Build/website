@@ -1,83 +1,83 @@
-import { defineArrayMember, defineField, defineType } from 'sanity'
-import { RiSpeakFill } from 'react-icons/ri'
+import { RiSpeakFill } from "react-icons/ri";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'speaker',
-  title: 'Speaker',
-  type: 'document',
+  name: "speaker",
+  title: "Speaker",
+  type: "document",
   icon: RiSpeakFill,
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
+      name: "name",
+      title: "Name",
+      type: "string",
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'name',
+        source: "name",
         maxLength: 96,
         isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'photo',
-      title: 'Photo',
-      type: 'image',
+      name: "photo",
+      title: "Photo",
+      type: "image",
       options: {
         hotspot: true,
       },
     }),
     defineField({
-      name: 'shortbio',
-      title: 'Short Bio',
-      type: 'array',
-      of: [{ type: 'block' }],
+      name: "shortbio",
+      title: "Short Bio",
+      type: "array",
+      of: [{ type: "block" }],
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
-      of: [{ type: 'block' }],
+      name: "bio",
+      title: "Bio",
+      type: "array",
+      of: [{ type: "block" }],
     }),
     defineField({
-      name: 'github',
-      title: 'GitHub',
-      type: 'url',
+      name: "github",
+      title: "GitHub",
+      type: "url",
       validation: (Rule) =>
         Rule.uri({
-          scheme: ['http', 'https'],
+          scheme: ["http", "https"],
         }),
     }),
     defineField({
-      name: 'linkedin',
-      title: 'LinkedIn',
-      type: 'url',
+      name: "linkedin",
+      title: "LinkedIn",
+      type: "url",
       validation: (Rule) =>
         Rule.uri({
-          scheme: ['http', 'https'],
+          scheme: ["http", "https"],
         }),
     }),
     defineField({
-      name: 'bluesky',
-      title: 'Bluesky',
-      type: 'url',
+      name: "bluesky",
+      title: "Bluesky",
+      type: "url",
       validation: (Rule) =>
         Rule.uri({
-          scheme: ['http', 'https'],
+          scheme: ["http", "https"],
         }),
     }),
     defineField({
-      name: 'website',
-      title: 'Website',
-      type: 'url',
+      name: "website",
+      title: "Website",
+      type: "url",
       validation: (Rule) =>
         Rule.uri({
-          scheme: ['http', 'https'],
+          scheme: ["http", "https"],
         }),
     }),
   ],
-})
+});

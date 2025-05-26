@@ -1,25 +1,22 @@
 import "@/styles/index.css";
 
-import type { Metadata, Viewport } from "next";
-import { toPlainText } from "next-sanity";
-import dynamic from "next/dynamic";
-import { draftMode } from "next/headers";
-import { Suspense } from "react";
-
 import { Footer } from "@/components/global/Footer";
 import { Navbar } from "@/components/global/Navbar";
-
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { homePageQuery, settingsQuery } from "@/sanity/lib/queries";
 import { urlForOpenGraphImage } from "@/sanity/lib/utils";
-import { loadHomePage, loadSettings } from "@/sanity/loader/loadQuery";
-
-const LiveVisualEditing = dynamic(
-  () => import("@/sanity/loader/LiveVisualEditing")
-);
+import type { Metadata, Viewport } from "next";
+import { toPlainText, VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
+import { Suspense } from "react";
+import { Toaster } from "sonner";
+import { handleError } from "./client-functions";
+import { DraftModeToast } from "./DraftModeToast";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [{ data: settings }, { data: homePage }] = await Promise.all([
-    loadSettings(),
-    loadHomePage(),
+    sanityFetch({ query: settingsQuery, stega: false }),
+    sanityFetch({ query: homePageQuery, stega: false }),
   ]);
 
   const ogImage = urlForOpenGraphImage(settings?.ogImage);
@@ -48,6 +45,11 @@ export default async function IndexRoute({
 }: {
   children: React.ReactNode;
 }) {
+  const { data } = await sanityFetch({ query: settingsQuery });
+
+  // TODO: Remove this
+  console.log("layout - data", data);
+
   return (
     <div
       id="page-container"
@@ -59,20 +61,27 @@ export default async function IndexRoute({
       <div className="BTB container mx-auto flex-1">
         <div className="mt-10 grow px-4 md:px-16 lg:px-32">
           <Suspense>
-            <Navbar />
+            <Navbar data={data} />
           </Suspense>
 
           <Suspense>{children}</Suspense>
         </div>
       </div>
       <div className="BTB container mx-auto">
-        <Suspense>
-          <Footer />
-        </Suspense>
+        <Footer data={data} />
+
         <hr />
         <Colours />
       </div>
-      {(await draftMode()).isEnabled && <LiveVisualEditing />}
+      <Toaster />
+
+      <SanityLive onError={handleError} />
+      {(await draftMode()).isEnabled && (
+        <>
+          <DraftModeToast />
+          <VisualEditing />
+        </>
+      )}
     </div>
   );
 }

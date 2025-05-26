@@ -1,17 +1,9 @@
-import dynamic from "next/dynamic";
-import { draftMode } from "next/headers";
-
-import { loadSettings } from "@/sanity/loader/loadQuery";
-
+import { SettingsPayload } from "@/types";
 import FooterLayout from "./FooterLayout";
-const FooterPreview = dynamic(() => import("./FooterPreview"));
 
-export async function Footer() {
-  const initial = await loadSettings();
-
-  if ((await draftMode()).isEnabled) {
-    return <FooterPreview initial={initial} />;
-  }
-
-  return <FooterLayout data={initial.data} />;
+interface FooterProps {
+  data: SettingsPayload;
+}
+export async function Footer(props: FooterProps) {
+  return <FooterLayout data={props.data} />;
 }
