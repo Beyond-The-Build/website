@@ -17,11 +17,11 @@ export default function Navbar(props: NavbarProps) {
         <div className="flex-1 flex justify-between items-center">
           <Link href="/" className="flex text-lg font-semibold">
             <Image
-              src="/static/logo/Beyond The Build Logo_small.webp"
-              alt="Beyond The Build"
-              width={50}
-              height={50}
-              className="rounded-full mr-2"
+              src="/static/logo/hero-icon-white.svg"
+              alt="Beyond The Build - svg"
+              width={20}
+              height={20}
+              className="bg-matrix-green-400 padding-2 hex-img"
             />
             <div className="mt-3">Beyond The Build</div>
           </Link>
@@ -36,14 +36,6 @@ export default function Navbar(props: NavbarProps) {
         >
           <nav>
             <ul className="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0">
-              {/* <li className="py-2 lg:py-0 ">
-                  <a
-                    className=" hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                    href="#"
-                  >
-                    Blog
-                  </a>
-                </li> */}
               {menuItems &&
                 menuItems.map((menuItem, key) => {
                   // destructring vlaur of menuItem
