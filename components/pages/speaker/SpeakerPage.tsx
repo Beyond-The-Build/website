@@ -34,11 +34,9 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
             // @TODO add alt field in schema
             alt=""
             height={560}
-            width={450}
+            width={560}
             classesWrapper="
-            object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg
-            md:basis-2/5
-            items-start
+            hex-img hex-img-lg
             "
           />
         )}

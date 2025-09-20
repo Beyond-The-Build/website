@@ -25,31 +25,20 @@
   https://coolors.co/image-picker - names also from coolors.co
 */
 @theme {
-  --color-royal-purple-50: #faf6fe;
-  --color-royal-purple-100: #f2ebfc;
-  --color-royal-purple-200: #e7dafa;
-  --color-royal-purple-300: #d5bdf5;
-  --color-royal-purple-400: #bc93ed;
-  --color-royal-purple-500: #a16ae2;
-  --color-royal-purple-600: #8b4ad3;
-  --color-royal-purple-700: #7638b8;
-  --color-royal-purple-800: #663399;
-  --color-royal-purple-900: #522a79;
-  --color-royal-purple-950: #371358;
-
-  --beige: #f2f9e0;
-  --color-beige-50: #f2f9e0;
-  --color-beige-100: #ebf5d2;
-  --color-beige-200: #d7eda9;
-  --color-beige-300: #bcdf77;
-  --color-beige-400: #a0ce4d;
-  --color-beige-500: #82b42e;
-  --color-beige-600: #658f21;
-  --color-beige-700: #4d6e1d;
-  --color-beige-800: #3f571d;
-  --color-beige-900: #364b1c;
-  --color-beige-950: #1b290a;
-
+  /* Electric Violet */
+  --electric-violet: #6145fd;
+  --color-electric-violet-50: #edeeff;
+  --color-electric-violet-100: #dde0ff;
+  --color-electric-violet-200: #c2c4ff;
+  --color-electric-violet-300: #9e9eff;
+  --color-electric-violet-400: #8277ff;
+  --color-electric-violet-500: #6145fd;
+  --color-electric-violet-600: #6338f3;
+  --color-electric-violet-700: #562bd7;
+  --color-electric-violet-800: #4526ad;
+  --color-electric-violet-900: #3b2788;
+  --color-electric-violet-950: #24174f;
+  
   --ash-gray: #b8c6b1;
   --color-ash-gray-50: #f6f8f5;
   --color-ash-gray-100: #ebefe9;
@@ -63,36 +52,57 @@
   --color-ash-gray-900: #313a2d;
   --color-ash-gray-950: #171e15;
 
-  --sea-green: #38945b;
-  --color-sea-green-50: #f0f9f2;
-  --color-sea-green-100: #dbf0df;
-  --color-sea-green-200: #b9e1c3;
-  --color-sea-green-300: #8acb9e;
-  --color-sea-green-400: #59ae77;
-  --color-sea-green-500: #38945b;
-  --color-sea-green-600: #277446;
-  --color-sea-green-700: #1f5d39;
-  --color-sea-green-800: #1b4a2f;
-  --color-sea-green-900: #173d28;
-  --color-sea-green-950: #0c2217;
+  /* Malachite - Matrix Green*/
+  --matrix-green: #48db60;
+  --color-matrix-green-50: #f0fdf1;
+  --color-matrix-green-100: #dcfce1;
+  --color-matrix-green-200: #bcf6c4;
+  --color-matrix-green-300: #88ed98;
+  --color-matrix-green-400: #48db60;
+  --color-matrix-green-500: #24c33f;
+  --color-matrix-green-600: #18a12f;
+  --color-matrix-green-700: #177e28;
+  --color-matrix-green-800: #176424;
+  --color-matrix-green-900: #155221;
+  --color-matrix-green-950: #062d0e;
+  
 
-  --eerie-black: #21211b;
-  --color-eerie-black-50: #f7f7f6;
-  --color-eerie-black-100: #e6e5e1;
-  --color-eerie-black-200: #cdcbc2;
-  --color-eerie-black-300: #acaa9c;
-  --color-eerie-black-400: #8a8877;
-  --color-eerie-black-500: #706e5c;
-  --color-eerie-black-600: #595748;
-  --color-eerie-black-700: #49483c;
-  --color-eerie-black-800: #3c3b33;
-  --color-eerie-black-900: #34342d;
-  --color-eerie-black-950: #21211b;
+  /* Warm White - Mint Green */
+  --warm-white: #dcefd8;
+  --color-warm-white-50: #dcefd8;
+  --color-warm-white-100: #cfe8ca;
+  --color-warm-white-200: #cfe8ca;
+  --color-warm-white-300: #a8d5a0;
+  --color-warm-white-400: #7ab96f;
+  --color-warm-white-500: #579c4b;
+  --color-warm-white-600: #448039;
+  --color-warm-white-700: #376530;
+  --color-warm-white-800: #2f512a;
+  --color-warm-white-900: #284324;
+  --color-warm-white-950: #11240f;
+
+
+  /* --eerie-black: #21211b; */
+  /* Aztec - Eerie Black */
+  --off-black: #0b1614;
+  --color-off-black-50: #f4f9f7;
+  --color-off-black-100: #daede6;
+  --color-off-black-200: #b5dacd;
+  --color-off-black-300: #88c0ae;
+  --color-off-black-400: #5fa28e;
+  --color-off-black-500: #468675;
+  --color-off-black-600: #366b5e;
+  --color-off-black-700: #2e574d;
+  --color-off-black-800: #284740;
+  --color-off-black-900: #253c37;
+  --color-off-black-950: #0b1614;
+  
+  
 }
 
 html,
 body {
-  background-color: var(--color-eerie-black-50);
+  background-color: var(--color-warm-white-50);
 }
 
 @import "./styles/assets.css";
