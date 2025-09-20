@@ -29,9 +29,6 @@ import timeline from "@/sanity/schemas/objects/timeline";
 import home from "@/sanity/schemas/singletons/home";
 import settings from "@/sanity/schemas/singletons/settings";
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Beyond The Build";
-
 export default defineConfig({
   title,
   basePath: studioUrl,

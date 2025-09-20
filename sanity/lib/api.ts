@@ -42,4 +42,4 @@ export const studioUrl = "/studio";
  */
 export const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  "Beyond the Build - Podcast Site with Sanity.io and Next.js";
+  "Beyond the Build - A Tech Community that goes beyond the technology";
