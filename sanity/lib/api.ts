@@ -37,3 +37,9 @@ function assertValue<T>(v: T | undefined, errorMessage: string): T {
  * Used to configure edit intent links, for Presentation Mode, as well as to configure where the Studio is mounted in the router.
  */
 export const studioUrl = "/studio";
+/**
+ * Used to configure edit intent links, for Presentation Mode, as well as to configure where the Studio is mounted in the router.
+ */
+export const title =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
+  "Beyond the Build - Podcast Site with Sanity.io and Next.js";

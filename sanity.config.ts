@@ -3,14 +3,19 @@
 /**
  * This config is used to set up Sanity Studio that's mounted on the `app/studio/[[...index]]/page.tsx` route
  */
-
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 
-import { apiVersion, dataset, projectId, studioUrl } from "@/sanity/lib/api";
+import {
+  apiVersion,
+  dataset,
+  projectId,
+  studioUrl,
+  title,
+} from "@/sanity/lib/api";
 import * as resolve from "@/sanity/plugins/resolve";
 import { pageStructure, singletonPlugin } from "@/sanity/plugins/settings";
 import page from "@/sanity/schemas/documents/page";
@@ -28,10 +33,10 @@ const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Beyond The Build";
 
 export default defineConfig({
+  title,
   basePath: studioUrl,
   projectId: projectId || "",
   dataset: dataset || "",
-  title,
   schema: {
     // If you want more content types, you can add them to this array
     types: [

@@ -44,7 +44,7 @@ export default async function SpeakersListRoute() {
               <div className="w-16 md:w-52">
                 {speaker?.photo !== null ? (
                   <Image
-                    className="rounded-full"
+                    className="hex-img"
                     alt={speaker.name}
                     width="100"
                     height="100"

@@ -62,7 +62,7 @@ export default function Navbar(props: NavbarProps) {
                       <Link
                         className={`text-lg hover:text-black md:text-xl ${
                           menuItem?._type === "home"
-                            ? "font-extrabold text-eerie-black-950"
+                            ? "font-extrabold text-off-black-950"
                             : ""
                         }`}
                         href={href}

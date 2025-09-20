@@ -31,14 +31,14 @@ export default function Footer(props: FooterProps) {
               href={discordLink?.url || "#"}
               className="
               text-white 
-              bg-sea-green-700 
-              hover:bg-sea-green-800 
+              bg-matrix-green-700 
+              hover:bg-matrix-green-800 
               focus:outline-none 
               focus:ring-4 
-              focus:ring-sea-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
-              dark:bg-sea-green-600
-              dark:hover:bg-sea-green-700
-              dark:focus:ring-sea-green-800"
+              focus:ring-matrix-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2
+              dark:bg-matrix-green-600
+              dark:hover:bg-matrix-green-700
+              dark:focus:ring-matrix-green-800"
             >
               <FaDiscord className="inline text-white-90 mr-1" /> Join us on
               Discord
