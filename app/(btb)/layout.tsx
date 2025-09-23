@@ -63,8 +63,10 @@ export default async function IndexRoute({
           <Suspense>
             <Navbar data={data} />
           </Suspense>
+          <div className="mt-10 bg-warm-white-50 h-[calc(100vh-10rem)]">
 
           <Suspense>{children}</Suspense>
+          </div>
         </div>
       </div>
       <div className="BTB container mx-auto">
