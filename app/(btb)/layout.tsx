@@ -64,7 +64,6 @@ export default async function IndexRoute({
             <Navbar data={data} />
           </Suspense>
 
-
           <Suspense>{children}</Suspense>
 
         </div>
