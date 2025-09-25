@@ -12,7 +12,7 @@ export default function Navbar(props: NavbarProps) {
   const { data } = props;
   const menuItems = data?.menuItems || ([] as MenuItem[]);
   return (
-    <header>
+    <header className="BTB container mx-auto pt-10">
       <nav className="flex flex-wrap items-center lg:py-0 py-2">
         <div className="flex-1 flex justify-between items-center">
           <Link href="/" className="flex text-lg font-semibold">
@@ -21,9 +21,9 @@ export default function Navbar(props: NavbarProps) {
               alt="Beyond The Build - svg"
               width={20}
               height={20}
-              className="bg-matrix-green-400 padding-2 hex-img"
+              className="bg-matrix-green-400 padding-2 hex-img mr-5"
             />
-            <div className="mt-3">Beyond The Build</div>
+            <div className="mt-3 text-5xl">Beyond The Build</div>
           </Link>
         </div>
         <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">

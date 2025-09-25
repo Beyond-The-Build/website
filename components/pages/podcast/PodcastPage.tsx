@@ -1,7 +1,6 @@
 import type { EncodeDataAttributeCallback } from "@sanity/react-loader";
 
 import { CustomPortableText } from "@/components/shared/CustomPortableText";
-import { Header } from "@/components/shared/Header";
 import type { PodcastPayload } from "@/types";
 import Link from "next/link";
 
@@ -19,7 +18,6 @@ export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
       <div className="mb-20 space-y-6">
         {/* Header */}
 
-        <Header title={title} description={overview} />
         {description && <CustomPortableText value={description} />}
 
         <div className="divide-inherit grid grid-cols-1 divide-y lg:grid-cols-4 lg:divide-x lg:divide-y-0">

@@ -55,14 +55,18 @@ export default async function IndexRoute({
       id="page-container"
       className="relative flex flex-col min-h-screen text-off-black-950"
     >
-      <span className="square square-1"></span>
-      <span className="square square-2"></span>
+      {/* <span className="square square-1"></span>
+      <span className="square square-2"></span> */}
 
-      <div className="BTB container mx-auto flex-1">
-        <div className="mt-10 grow px-4 md:px-16 lg:px-32">
           <Suspense>
             <Navbar data={data} />
           </Suspense>
+      <div className="BTB container mx-auto flex-1 ">
+        <div className="mt-10 grow px-4 md:px-16 lg:px-32 bg-ash-gray-50
+        p-10 rounded-xl
+        " 
+       
+        >
 
           <Suspense>{children}</Suspense>
 
