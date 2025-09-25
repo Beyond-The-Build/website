@@ -34,9 +34,9 @@ export default async function PodcastListRoute({
   }
 
   return (
-    <main className="container">
-      <h1 className="text-4xl">Total Podcasts {podcastCount}</h1>
-
+        <div>
+      <div className="mb-14">
+      <h1 className="text-4xl mb-10">Total Podcasts {podcastCount}</h1>
       {podcastCount === 0 && <p>No podcasts found.</p>}
 
       {podcasts.map((podcast) => (
@@ -50,6 +50,11 @@ export default async function PodcastListRoute({
           </Link>
         </div>
       ))}
-    </main>
+      </div>
+      </div>
+
+
+
+
   );
 }

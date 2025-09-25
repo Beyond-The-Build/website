@@ -20,13 +20,7 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
 
   return (
     <div>
-      <div
-        className="
-      max-w
-      flex flex-row items-start  border border-gray-200 rounded-lg shadow-sm 
-      md:flex-row   
-      "
-      >
+      <div className="mb-14">
         {photo && (
           <ImageBox
             data-sanity={encodeDataAttribute?.("photo")}

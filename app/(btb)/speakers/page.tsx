@@ -24,7 +24,7 @@ export default async function SpeakersListRoute() {
 
   return (
     <main>
-      <h1 className="mb-8 text-3xl">
+      <h1 className="mb-8 text-4xl">
         Beyond the Build {Array.isArray(speakers) ? speakers.length : 0}{" "}
         Speakers
       </h1>

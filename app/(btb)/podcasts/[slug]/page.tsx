@@ -4,7 +4,6 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { CustomPortableText } from "@/components/CustomPortableText";
-import { Header } from "@/components/shared/Header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { podcastBySlugQuery } from "@/sanity/lib/queries";
 import { urlForOpenGraphImage } from "@/sanity/lib/utils";
@@ -64,14 +63,13 @@ export default async function PodcastSlugRoute({ params }: Props) {
   return (
     <div>
       <div className="mb-20 space-y-6">
-        {/* Header */}
-        <Header
-          // id={data?._id || null}
-          // type={data?._type || null}
-          // path={["overview"]}
-          title={title || (data?._id ? "Untitled" : "404 Page Not Found")}
-          description={overview}
-        />
+        {/* Title */}
+      {title && (
+        <div className="text-4xl">
+          {title}
+        </div>
+      )}
+        
         {description && (
           <CustomPortableText
             id={data?._id || null}
