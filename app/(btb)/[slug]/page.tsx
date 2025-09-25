@@ -46,7 +46,7 @@ export default async function PageSlugRoute({ params }: Props) {
     notFound();
   }
 
-  const { body, overview, title } = data ?? {};
+  const { body, title } = data ?? {};
 
   return (
     <div>

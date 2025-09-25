@@ -52,9 +52,5 @@ export default async function PodcastListRoute({
       ))}
       </div>
       </div>
-
-
-
-
   );
 }

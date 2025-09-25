@@ -58,7 +58,7 @@ export default async function PodcastSlugRoute({ params }: Props) {
   if (!data?._id && !(await draftMode()).isEnabled) {
     notFound();
   }
-  const { overview, title, speakers, description } = data ?? {};
+  const { title, speakers, description } = data ?? {};
 
   return (
     <div>

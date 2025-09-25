@@ -11,7 +11,7 @@ export interface PodcastPageProps {
 
 export function PodcastPage({ data, encodeDataAttribute }: PodcastPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview, speakers, description, title } = data ?? {};
+  const { speakers, description, } = data ?? {};
 
   return (
     <div>
