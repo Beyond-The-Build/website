@@ -19,55 +19,64 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
     data ?? {};
 
   return (
-    <div>
-      <div className="mb-14">
-        {photo && (
-          <ImageBox
-            data-sanity={encodeDataAttribute?.("photo")}
-            image={photo}
-            // @TODO add alt field in schema
-            alt=""
-            height={560}
-            width={560}
-            classesWrapper="
-            hex-img hex-img-lg
-            "
-          />
-        )}
 
-        {/* <img className="" src="/docs/images/blog/image-4.jpg" alt="" /> */}
-        <div className="flex flex-col justify-between p-4 leading-normal md:basis-3/5">
-          <h1 className="text-4xl">{name}</h1>
+    
+    <div className="md:grid md:grid-cols-12 md:items-start">
+    {/* Outer container */}
 
-          {bio && <CustomPortableText value={bio} />}
-          <div className="flex flex-row space-x-4">
+      {/* Image area (left) */}
+      <div className="md:col-span-5">
+      <ImageBox
+              data-sanity={encodeDataAttribute?.('photo')}
+              image={photo}
+              alt=""
+              height={560}
+              width={560}
+              classesWrapper="
+              hex-img hex-img-lg"
+            />
+       
+      </div>
+
+      {/* Text block (overlaps the image ~30%) */}
+      <div
+        className="
+          relative z-10 mt-6 md:mt-40
+          md:col-span-7 md:-ml-[30%] md:pl-10
+          sm:ml-0
+          sm:mt-0
+        "
+      >
+        <div className="
+        rounded-2xl border border-black/10 bg-white/95 shadow-xl backdrop-blur-sm p-6 md:p-10
+        ">
+          <h1 className="text-3xl md:text-4xl font-semibold">{name}</h1>
+
+          <div className="prose max-w-none mt-4">
+            {bio && <CustomPortableText value={bio} />}
+          </div>
+
+          {/* Socials (optional) */}
+          <div className="mt-6 flex flex-wrap gap-4">
             {linkedin && (
-              <div>
-                <a href={linkedin} title={linkedin}>
-                  <FaLinkedin size={74} />
-                </a>
-              </div>
+              <a href={linkedin} aria-label="LinkedIn" className="text-slate-600 hover:text-slate-900">
+                <FaLinkedin size={28} />
+              </a>
             )}
             {github && (
-              <div>
-                <a href={github} title={github}>
-                  <FaGithub size={74} />
-                </a>
-              </div>
+              <a href={github} aria-label="GitHub" className="text-slate-600 hover:text-slate-900">
+                <FaGithub size={28} />
+              </a>
             )}
             {bluesky && (
-              <div>
-                <a href={bluesky} title={bluesky}>
-                  <FaBluesky size={74} />
-                </a>
-              </div>
+              <a href={bluesky} aria-label="Bluesky" className="text-slate-600 hover:text-slate-900">
+                <FaBluesky size={28} />
+              </a>
             )}
             {website && (
-              <div>
-                <a href={website} title={website}>
-                  <FaGlobe size={74} />
-                </a>
-              </div>
+              <a href={website} aria-label="Website" className="text-slate-600 hover:text-slate-900">
+                <FaGlobe size={28} />
+              </a>
             )}
           </div>
           <div>
@@ -95,7 +104,10 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
           </div>
         </div>
       </div>
+
     </div>
+  
+
   );
 }
 
