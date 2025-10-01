@@ -26,7 +26,7 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
       {/* Image area (left) */}
       <div className="md:col-span-5">
       <ImageBox
-              data-sanity={encodeDataAttribute?.('photo')}
+              data-sanity={encodeDataAttribute?.("photo")}
               image={photo}
               alt=""
               height={560}
