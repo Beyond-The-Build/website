@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build && sanity manifest extract --path public/studio/static",
     "predev": "npm run typegen",
-    "clean": "next clean",
+    "clean": "bash -c 'rm -rf .next .turbo node_modules/.cache .vercel/output'",
     "dev": "next --turbopack",
     "dev2": "next dev",
     "format": "npx prettier --write . --ignore-path .gitignore",
@@ -28,7 +28,7 @@
     "@sanity/react-loader": "^1.11.19",
     "@sanity/ui": "^2.15.18",
     "@sanity/vision": "^3.89.0",
-    "@tailwindcss/typography": "0.5.18",
+    "@tailwindcss/typography": "0.5.19",
     "classnames": "2.5.1",
     "date-fns": "4.1.0",
     "next": "15.5.4",
@@ -41,7 +41,7 @@
     "sanity": "^3.89.0",
     "sanity-plugin-asset-source-unsplash": "3.0.3",
     "server-only": "0.0.1",
-    "sonner": "2.0.3",
+    "sonner": "2.0.7",
     "styled-components": "6.1.19"
   },
   "devDependencies": {
@@ -49,14 +49,14 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@digitalroute/cz-conventional-changelog-for-jira": "^8.0.1",
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.1.13",
+    "@tailwindcss/postcss": "^4.1.14",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "beta",
     "commitizen": "^4.3.1",
     "eslint": "^9",
-    "eslint-config-next": "15.3.2",
+    "eslint-config-next": "15.5.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "husky": "^9.1.7",
@@ -64,8 +64,8 @@
     "prettier": "3.6.2",
     "prettier-plugin-packagejson": "2.5.19",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^4.1.13",
-    "typescript": "5.9.2"
+    "tailwindcss": "^4.1.14",
+    "typescript": "5.9.3"
   },
   "config": {
     "commitizen": {
