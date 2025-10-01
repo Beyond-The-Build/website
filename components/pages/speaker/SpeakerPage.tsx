@@ -20,7 +20,6 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
 
   return (
 
-    
     <div className="md:grid md:grid-cols-12 md:items-start">
     {/* Outer container */}
 
@@ -35,7 +34,6 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
               classesWrapper="
               hex-img hex-img-lg"
             />
-       
       </div>
 
       {/* Text block (overlaps the image ~30%) */}
@@ -104,10 +102,7 @@ export function SpeakerPage({ data, encodeDataAttribute }: SpeakerPageProps) {
           </div>
         </div>
       </div>
-
     </div>
-  
-
   );
 }
 
