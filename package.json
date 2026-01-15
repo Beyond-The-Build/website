@@ -2,7 +2,7 @@
   "name": "beyond-the-build",
   "private": true,
   "scripts": {
-    "build": "npm run typegen && next build && sanity manifest extract --path public/studio/static",
+    "build": "next build && sanity manifest extract --path public/studio/static",
     "predev": "npm run typegen",
     "clean": "bash -c 'rm -rf .next .turbo node_modules/.cache .vercel/output'",
     "dev": "next --turbopack",
