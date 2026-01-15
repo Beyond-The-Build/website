@@ -13,61 +13,6 @@
  */
 
 // Source: schema.json
-export type SanityImagePaletteSwatch = {
-  _type: "sanity.imagePaletteSwatch";
-  background?: string;
-  foreground?: string;
-  population?: number;
-  title?: string;
-};
-
-export type SanityImagePalette = {
-  _type: "sanity.imagePalette";
-  darkMuted?: SanityImagePaletteSwatch;
-  lightVibrant?: SanityImagePaletteSwatch;
-  darkVibrant?: SanityImagePaletteSwatch;
-  vibrant?: SanityImagePaletteSwatch;
-  dominant?: SanityImagePaletteSwatch;
-  lightMuted?: SanityImagePaletteSwatch;
-  muted?: SanityImagePaletteSwatch;
-};
-
-export type SanityImageDimensions = {
-  _type: "sanity.imageDimensions";
-  height?: number;
-  width?: number;
-  aspectRatio?: number;
-};
-
-export type SanityFileAsset = {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
-};
-
-export type Geopoint = {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
-};
-
 export type Sitelinks = {
   _id: string;
   _type: "sitelinks";
@@ -93,17 +38,19 @@ export type Timeline = {
   }>;
 };
 
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
 export type Milestone = {
   _type: "milestone";
   title?: string;
   description?: string;
   image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -122,12 +69,7 @@ export type Speaker = {
   name?: string;
   slug?: Slug;
   photo?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -175,6 +117,35 @@ export type Speaker = {
   website?: string;
 };
 
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type SpeakerReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "speaker";
+};
+
 export type Podcast = {
   _id: string;
   _type: "podcast";
@@ -201,24 +172,17 @@ export type Podcast = {
     _key: string;
   }>;
   coverImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
   };
-  speakers?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "speaker";
-  }>;
+  speakers?: Array<
+    {
+      _key: string;
+    } & SpeakerReference
+  >;
   tags?: Array<string>;
   description?: Array<
     | {
@@ -240,12 +204,7 @@ export type Podcast = {
         _key: string;
       }
     | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
+        asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
@@ -280,12 +239,7 @@ export type Project = {
     _key: string;
   }>;
   coverImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -318,12 +272,7 @@ export type Project = {
         _key: string;
       } & Timeline)
     | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
+        asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
@@ -333,6 +282,12 @@ export type Project = {
         _key: string;
       }
   >;
+};
+
+export type Duration = {
+  _type: "duration";
+  start?: string;
+  end?: string;
 };
 
 export type Page = {
@@ -380,12 +335,7 @@ export type Page = {
         _key: string;
       } & Timeline)
     | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
+        asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
@@ -397,16 +347,32 @@ export type Page = {
   >;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
+export type HomeReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "home";
 };
 
-export type Duration = {
-  _type: "duration";
-  start?: string;
-  end?: string;
+export type PageReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "page";
+};
+
+export type ProjectReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "project";
+};
+
+export type SitelinksReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sitelinks";
 };
 
 export type Settings = {
@@ -415,31 +381,8 @@ export type Settings = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  menuItems?: Array<
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "home";
-      }
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "page";
-      }
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "project";
-      }
-    | {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sitelinks";
-      }
+  menuItems?: ArrayOf<
+    HomeReference | PageReference | ProjectReference | SitelinksReference
   >;
   footer?: Array<{
     children?: Array<{
@@ -460,12 +403,7 @@ export type Settings = {
     _key: string;
   }>;
   ogImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -473,61 +411,11 @@ export type Settings = {
   };
 };
 
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
-
-export type SanityImageAsset = {
-  _id: string;
-  _type: "sanity.imageAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  metadata?: SanityImageMetadata;
-  source?: SanityAssetSourceData;
-};
-
-export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
-};
-
-export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
+export type PodcastReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "podcast";
 };
 
 export type Home = {
@@ -555,46 +443,154 @@ export type Home = {
     _type: "block";
     _key: string;
   }>;
-  showcaseProjects?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "project";
-  }>;
-  showcasePodcasts?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "podcast";
-  }>;
+  showcaseProjects?: Array<
+    {
+      _key: string;
+    } & ProjectReference
+  >;
+  showcasePodcasts?: Array<
+    {
+      _key: string;
+    } & PodcastReference
+  >;
+};
+
+export type SanityImagePaletteSwatch = {
+  _type: "sanity.imagePaletteSwatch";
+  background?: string;
+  foreground?: string;
+  population?: number;
+  title?: string;
+};
+
+export type SanityImagePalette = {
+  _type: "sanity.imagePalette";
+  darkMuted?: SanityImagePaletteSwatch;
+  lightVibrant?: SanityImagePaletteSwatch;
+  darkVibrant?: SanityImagePaletteSwatch;
+  vibrant?: SanityImagePaletteSwatch;
+  dominant?: SanityImagePaletteSwatch;
+  lightMuted?: SanityImagePaletteSwatch;
+  muted?: SanityImagePaletteSwatch;
+};
+
+export type SanityImageDimensions = {
+  _type: "sanity.imageDimensions";
+  height?: number;
+  width?: number;
+  aspectRatio?: number;
+};
+
+export type SanityImageMetadata = {
+  _type: "sanity.imageMetadata";
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  thumbHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
+};
+
+export type SanityFileAsset = {
+  _id: string;
+  _type: "sanity.fileAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  source?: SanityAssetSourceData;
+};
+
+export type SanityAssetSourceData = {
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
+};
+
+export type SanityImageAsset = {
+  _id: string;
+  _type: "sanity.imageAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  metadata?: SanityImageMetadata;
+  source?: SanityAssetSourceData;
+};
+
+export type Geopoint = {
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
 };
 
 export type AllSanitySchemaTypes =
+  | Sitelinks
+  | Timeline
+  | SanityImageAssetReference
+  | Milestone
+  | Speaker
+  | SanityImageCrop
+  | SanityImageHotspot
+  | Slug
+  | SpeakerReference
+  | Podcast
+  | Project
+  | Duration
+  | Page
+  | HomeReference
+  | PageReference
+  | ProjectReference
+  | SitelinksReference
+  | Settings
+  | PodcastReference
+  | Home
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
-  | SanityFileAsset
-  | Geopoint
-  | Sitelinks
-  | Timeline
-  | Milestone
-  | Speaker
-  | Podcast
-  | Project
-  | Page
-  | Slug
-  | Duration
-  | Settings
-  | SanityImageCrop
-  | SanityImageHotspot
-  | SanityImageAsset
-  | SanityAssetSourceData
   | SanityImageMetadata
-  | Home;
+  | SanityFileAsset
+  | SanityAssetSourceData
+  | SanityImageAsset
+  | Geopoint;
+
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./sanity/lib/queries.ts
+
+type ArrayOf<T> = Array<
+  T & {
+    _key: string;
+  }
+>;
+
+// Source: sanity/lib/queries.ts
 // Variable: homePageQuery
 // Query: *[_type == "home"][0]{    _id,    overview,    showcaseProjects[]->{      _type,      coverImage,      overview,      "slug": slug.current,      tags,      title,    },    showcasePodcasts[]->{      _type,      coverImage,      overview,      "slug": slug.current,      tags,      title,    },    title,  }
 export type HomePageQueryResult = {
@@ -620,12 +616,7 @@ export type HomePageQueryResult = {
   showcaseProjects: Array<{
     _type: "project";
     coverImage: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
+      asset?: SanityImageAssetReference;
       media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
@@ -652,12 +643,7 @@ export type HomePageQueryResult = {
   showcasePodcasts: Array<{
     _type: "podcast";
     coverImage: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
+      asset?: SanityImageAssetReference;
       media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
@@ -683,6 +669,8 @@ export type HomePageQueryResult = {
   }> | null;
   title: string | null;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: paginatedPodcastQuery
 // Query: {  "podcastCount": count(*[_type == "podcast"]),  "podcasts": *[_type == "podcast"] | order(season desc, episodeNumber desc) [$skip...$limit] {    _id,    "slug": slug.current,    title,    overview,    coverImage,    tags,    description,    speakers,    season,    episodeNumber  },}
 export type PaginatedPodcastQueryResult = {
@@ -706,12 +694,7 @@ export type PaginatedPodcastQueryResult = {
       _key: string;
     }> | null;
     coverImage: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
+      asset?: SanityImageAssetReference;
       media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
@@ -738,12 +721,7 @@ export type PaginatedPodcastQueryResult = {
           _key: string;
         }
       | {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-          };
+          asset?: SanityImageAssetReference;
           media?: unknown;
           hotspot?: SanityImageHotspot;
           crop?: SanityImageCrop;
@@ -753,17 +731,17 @@ export type PaginatedPodcastQueryResult = {
           _key: string;
         }
     > | null;
-    speakers: Array<{
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      _key: string;
-      [internalGroqTypeReferenceTo]?: "speaker";
-    }> | null;
+    speakers: Array<
+      {
+        _key: string;
+      } & SpeakerReference
+    > | null;
     season: number | null;
     episodeNumber: number | null;
   }>;
 };
+
+// Source: sanity/lib/queries.ts
 // Variable: pagesBySlugQuery
 // Query: *[_type == "page" && slug.current == $slug][0] {    _id,    body,    overview,    title,    "slug": slug.current,  }
 export type PagesBySlugQueryResult = {
@@ -791,12 +769,7 @@ export type PagesBySlugQueryResult = {
         _key: string;
       }
     | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
+        asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
@@ -823,18 +796,15 @@ export type PagesBySlugQueryResult = {
   title: string | null;
   slug: string | null;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: projectBySlugQuery
 // Query: *[_type == "project" && slug.current == $slug][0] {    _id,    client,    coverImage,    description,    duration,    overview,    site,    "slug": slug.current,    tags,    title,  }
 export type ProjectBySlugQueryResult = {
   _id: string;
   client: string | null;
   coverImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -863,12 +833,7 @@ export type ProjectBySlugQueryResult = {
         _key: string;
       }
     | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
+        asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
@@ -898,6 +863,8 @@ export type ProjectBySlugQueryResult = {
   tags: Array<string> | null;
   title: string | null;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: podcastBySlugQuery
 // Query: *[_type == "podcast" && slug.current == $slug][0] {    _id,    title,    "slug": slug.current,    overview,    coverImage,    client,    tags,    description,    speakers[]-> {      _id,      name,      role,      image,      bio,      "slug": slug.current    }  }
 export type PodcastBySlugQueryResult = {
@@ -919,12 +886,7 @@ export type PodcastBySlugQueryResult = {
     _key: string;
   }> | null;
   coverImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -952,12 +914,7 @@ export type PodcastBySlugQueryResult = {
         _key: string;
       }
     | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
+        asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
@@ -993,6 +950,8 @@ export type PodcastBySlugQueryResult = {
     slug: string | null;
   }> | null;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: settingsQuery
 // Query: *[_type == "settings"][0]{    footer,    menuItems[]->{      _type,      "slug": slug.current,      url,      title    },    ogImage,  }
 export type SettingsQueryResult = {
@@ -1041,30 +1000,22 @@ export type SettingsQueryResult = {
       }
   > | null;
   ogImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
   } | null;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: speakersQuery
 // Query: *[_type == "speaker"] {    _id,    name,    photo,    shortbio,    bio,    github,    linkedin,    bluesky,    website,    "slug": slug.current,  }
 export type SpeakersQueryResult = Array<{
   _id: string;
   name: string | null;
   photo: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -1112,18 +1063,15 @@ export type SpeakersQueryResult = Array<{
   website: string | null;
   slug: string | null;
 }>;
+
+// Source: sanity/lib/queries.ts
 // Variable: speakerBySlugQuery
 // Query: *[_type == "speaker" && slug.current == $slug][0] {    _id,    name,    photo,    bio,    shortbio,    github,    linkedin,    bluesky,    "slug": slug.current,    website,    "podcasts": *[_type == "podcast" && references(^._id)] | order(season desc, episodeNumber desc){      _id,      title,      "slug": slug.current,      overview,      coverImage,      tags,      season,      episodeNumber,      dateRecorded    }  }
 export type SpeakerBySlugQueryResult = {
   _id: string;
   name: string | null;
   photo: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
+    asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
@@ -1189,12 +1137,7 @@ export type SpeakerBySlugQueryResult = {
       _key: string;
     }> | null;
     coverImage: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
+      asset?: SanityImageAssetReference;
       media?: unknown;
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
@@ -1206,6 +1149,8 @@ export type SpeakerBySlugQueryResult = {
     dateRecorded: string | null;
   }>;
 } | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: slugsByTypeQuery
 // Query: *[_type == $type && defined(slug.current)]{"slug": slug.current}
 export type SlugsByTypeQueryResult = Array<{
