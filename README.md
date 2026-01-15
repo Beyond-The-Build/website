@@ -1,4 +1,4 @@
-# BTB-Blog
+# Beyond The Build Blog
 
 This Beyond The Build website that uses [Next.js][nextjs] for the frontend and [Sanity][sanity-homepage] to handle its content. It comes with a native Sanity Studio that offers features like real-time collaboration and visual editing with live updates using [Presentation][presentation].
 
