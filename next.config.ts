@@ -4,7 +4,10 @@ const config: NextConfig = {
   // Helps catch bugs
   reactStrictMode: true,
   // React Compiler is now stable in Next.js 16
-  reactCompiler: true,
+  // reactCompiler: true, // Disabled - conflicts with styled-components
+  compiler: {
+    styledComponents: true,
+  },
   images: {
     remotePatterns: [{ hostname: "cdn.sanity.io" }],
   },
