@@ -7,12 +7,12 @@ import { homePageQuery, settingsQuery } from "@/sanity/lib/queries";
 import { urlForOpenGraphImage } from "@/sanity/lib/utils";
 import type { Metadata, Viewport } from "next";
 import { toPlainText } from "next-sanity";
-import { VisualEditing } from "@sanity/visual-editing/next-pages-router";
 import { draftMode } from "next/headers";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
 import { handleError } from "./client-functions";
 import { DraftModeToast } from "./DraftModeToast";
+import { VisualEditingWrapper } from "./VisualEditingWrapper";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [{ data: settings }, { data: homePage }] = await Promise.all([
@@ -47,6 +47,7 @@ export default async function IndexRoute({
   children: React.ReactNode;
 }) {
   const { data } = await sanityFetch({ query: settingsQuery });
+  const draft = await draftMode();
 
   // TODO: Remove this
   // console.log("layout - data", data);
@@ -83,10 +84,10 @@ export default async function IndexRoute({
       <Toaster />
 
       <SanityLive onError={handleError} />
-      {(await draftMode()).isEnabled && (
+      {draft.isEnabled && (
         <>
           <DraftModeToast />
-          <VisualEditing />
+          <VisualEditingWrapper />
         </>
       )}
     </div>
