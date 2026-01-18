@@ -39,7 +39,7 @@
     "react-icons": "^5.5.0",
     "react-live-transitions": "0.2.0",
     "rxjs": "7.8.2",
-    "sanity": "^5.5.0-next.12",
+    "sanity": "^5.4.0",
     "sanity-plugin-asset-source-unsplash": "7.0.2",
     "server-only": "0.0.1",
     "sonner": "2.0.7",
